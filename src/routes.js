@@ -3,11 +3,12 @@ import Login from './components/account/Login.vue';
 import Logout from './components/account/Logout.vue';
 import Account from './components/account/Account.vue';
 import Home from './components/Home.vue';
+import Profile from './components/Profile.vue';
 import TelegramGroups from './components/TelegramGroups.vue';
 
 export const routes = [
     {
-        path: '',
+        path: '/',
         component: Home,
         name: 'home'
     },
@@ -32,6 +33,11 @@ export const routes = [
                 name: 'logout'
             },
         ]
+    },
+    {
+        path: '/profile',
+        component: Profile,
+        name: 'profile'
     },
     {
         path: '/groups',

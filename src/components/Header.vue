@@ -15,11 +15,12 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="btn font dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    پروفایل
+                    ناحیه کاربری
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                     <div v-if="isAuthenticated">
+                    <router-link :to="{name: 'profile'}" tag="a" class="dropdown-item font"><a>پروفایل</a></router-link>
                     <router-link :to="{name: 'logout'}" tag="a" class="dropdown-item font"><a>خروج</a></router-link>
                     </div>
                     <div v-else>

@@ -256,9 +256,13 @@ div.container {
     .content{
         padding: 0px 30px;
     }
+    .container, .content{
+        margin-top: 100px;
+    }
 }
 
 #about #join-us p, #about #join-us {
     text-align: center;
 }
+
 </style>
