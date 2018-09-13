@@ -121,15 +121,17 @@ router.beforeEach((to, from, next) => {
       const decoded = jwt_decode(token);
       const exp = decoded.exp
       const orig_iat = decoded.orig_iat
-      if(exp - (Date.now()/1000) >= 3600){
-          if((Date.now()/1000) - orig_iat < 604800){
-              store.dispatch('refreshToken');
-          } else {
-            this.commit('setAuthentication', false);
-          }
-      } else {
+
+
+      if(exp - (Date.now()/1000) < 3600 && (Date.now()/1000) - orig_iat < 604800){
         store.commit('setAuthentication', true);
+        store.dispatch('refreshToken');
+      } else if (exp -(Date.now()/1000) < 3600){
+        store.commit('setAuthentication', true);
+      } else {
+        store.commit('setAuthentication', false);
       }
+
   }
   next();
 });
