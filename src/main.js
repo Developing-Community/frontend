@@ -14,8 +14,8 @@ Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
 
-const host = window.location.href.split("/")[0] + "//" + window.location.href.split("/")[2]
-// const host = "https://dev-community.ir"
+// const host = window.location.href.split("/")[0] + "//" + window.location.href.split("/")[2]
+const host = "https://dev-community.ir"
 // const host = "http://127.0.0.1:8081"
 // const host = "http://127.0.0.1:8000"
 
@@ -48,6 +48,7 @@ export const store = new Vuex.Store({
     },
     removeToken(state) {
       localStorage.removeItem('t');
+      state.isAuthenticated = false;
       state.jwt = null;
     }
   },
@@ -113,25 +114,28 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem('t');
-  if(!token){
-      store.commit('setAuthentication', false);
-  }
-  else{
-      const decoded = jwt_decode(token);
-      const exp = decoded.exp
-      const orig_iat = decoded.orig_iat
-
-
-      if(exp - (Date.now()/1000) < 3600 && (Date.now()/1000) - orig_iat < 604800){
-        store.commit('setAuthentication', true);
-        store.dispatch('refreshToken');
-      } else if (exp -(Date.now()/1000) < 3600){
-        store.commit('setAuthentication', true);
-      } else {
+  console.log(from);
+  if(from.name == "logout"){
+    const token = localStorage.getItem('t');
+    if(!token){
         store.commit('setAuthentication', false);
-      }
+    }
+    else{
+        const decoded = jwt_decode(token);
+        const exp = decoded.exp
+        const orig_iat = decoded.orig_iat
 
+
+        if(exp - (Date.now()/1000) < 3600 && (Date.now()/1000) - orig_iat < 604800){
+          store.commit('setAuthentication', true);
+          store.dispatch('refreshToken');
+        } else if (exp -(Date.now()/1000) < 3600){
+          store.commit('setAuthentication', true);
+        } else {
+          store.commit('setAuthentication', false);
+        }
+
+    }
   }
   next();
 });
