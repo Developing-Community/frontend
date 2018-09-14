@@ -6,6 +6,7 @@ import Home from './components/Home.vue';
 import Profile from './components/Profile.vue';
 import TelegramGroups from './components/TelegramGroups.vue';
 
+import Campaign from './components/campaign/Campaign.vue';
 export const routes = [
     {
         path: '/',
@@ -34,6 +35,28 @@ export const routes = [
             },
         ]
     },
+    // {
+    //     path: '/campaigns',
+    //     component: Campaign,
+    //     name: 'campaigns',
+    //     children: [
+    //         {
+    //             path: '',
+    //             component: ListCampaign,
+    //             name: 'login'
+    //         },
+    //         {
+    //             path: 'create',
+    //             component: CreateCampaign,
+    //             name: 'create'
+    //         },
+    //         {
+    //             path: 'logout',
+    //             component: Logout,
+    //             name: 'logout'
+    //         },
+    //     ]
+    // },
     {
         path: '/profile',
         component: Profile,

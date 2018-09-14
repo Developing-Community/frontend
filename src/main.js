@@ -10,7 +10,6 @@ import { rejects } from 'assert';
 
 
 Vue.use(Vuex);
-// Vue.use(VueResource);
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
 
@@ -78,6 +77,7 @@ export const store = new Vuex.Store({
           this.commit('setAuthentication', true);
         })
         .catch((error) => {
+          this.commit('removeToken');
           throw(error);
         })
     },
@@ -132,7 +132,7 @@ router.beforeEach((to, from, next) => {
         } else if (exp -(Date.now()/1000) < 3600){
           store.commit('setAuthentication', true);
         } else {
-          store.commit('setAuthentication', false);
+          store.commit('removeToken');
         }
 
     }
