@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <div class="ui sidebar inverted vertical  menu">
             <div class="item"> Home </div>
             <div class="item">Contact </div>
