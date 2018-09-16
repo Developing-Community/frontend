@@ -1,7 +1,7 @@
 <template>
 <div class="content" id="about">
 
-    <div class="row">
+    <div class="row" >
         <div class="col-lg-6 text-center my-4 px-4">
             <h2>هدف ما</h2>
             <hr/>
@@ -34,7 +34,7 @@
 <div id="join-us">
     <h1 class="header">چطوری عضو شیم؟</h1>
     <p>اگر دوست دارید با آدمای مختلف آشنا بشید و کار تیمی کنید و در یک محیط حرفه ای یاد بگیرید، خوشحال میشیم در جمع ما باشید :)</p>
-    <router-link :to="{name: 'register'}" tag="h5"><a>عضویت و دریافت لینک گروه ها</a></router-link>
+    <router-link :to="{name: 'register'}" tag="h5"></router-link>
     </div>
 </div>
 </template>

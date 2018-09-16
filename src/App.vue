@@ -1,4 +1,6 @@
 <template>
+
+
     <div>
 
         <div class="ui pointing menu">
@@ -11,13 +13,19 @@
         </div>
 
         <div class="ui sidebar inverted vertical  menu">
-            <div class="item"> Home </div>
+            <div class="right item"> Home </div>
             <div class="item">Contact </div>
             <div class="item">about </div>
         </div>
         <router-view></router-view>
+        <app-footer></app-footer>
     </div>
+
+    
+
 </template>
+
+
 
 <script>
     import Header from "./components/Header.vue"
