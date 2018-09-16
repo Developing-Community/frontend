@@ -1,12 +1,20 @@
 <template>
     <div>
-        
+
+        <div class="ui pointing menu">
+
+            <div class="right item ">
+                <a class="item" id = "Opener"> <i class="content icon"></i> </a>
+                <a class="item">گروهک</a>
+                <a class="item">تست</a>
+            </div>
+        </div>
+
         <div class="ui sidebar inverted vertical  menu">
             <div class="item"> Home </div>
             <div class="item">Contact </div>
             <div class="item">about </div>
         </div>
-        <button id = "Opener" class="contect icon large">weflwpeofjo</button>
         <router-view></router-view>
     </div>
 </template>
@@ -33,4 +41,16 @@
     src: url(/static/fonts/IranSansWeb.ttf) format("ttf");
 }
 
+.ui.menu {
+    background-color: rgb(34, 48, 82);
+    font-family: IRANSans;
+    
+}
+.ui.menu .item {
+    color: aliceblue;  
+}
+
+.ui.menu .right .item:hover {
+    color: aliceblue;  
+}
 </style>
