@@ -1,6 +1,5 @@
-<template><div class="ui container" style="text-align: center; margin-bottom: 20px;">
-    <div class="top_container ">
-        <div class="col-sm-10" style="display:block; margin: auto;">
+<template>
+<div>
 <h1 style="text-align: center; margin:30px;">ورود</h1>
             <div v-if="loading" style="width: 100%; text-align: center;">
                 <img style="margin: auto;" src="/static/loading.gif" />
@@ -17,8 +16,6 @@
                 <button class="btn btn-primary" style="margin: 10px;" @click="submit">ورود</button>
                 <button class="btn btn-primary" style="margin: 10px;" @click="$router.push({name: 'register'})">ثبت نام</button>
             </div>
-        </div>
-    </div>
 </div>
 </template>
 

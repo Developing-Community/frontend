@@ -7,6 +7,9 @@ import Profile from './components/Profile.vue';
 import TelegramGroups from './components/TelegramGroups.vue';
 
 import Campaign from './components/campaign/Campaign.vue';
+import ListCampaign from './components/campaign/ListCampaign.vue';
+import DetailsCampaign from './components/campaign/DetailsCampaign.vue';
+import CreateCampaign from './components/campaign/CreateCampaign.vue';
 export const routes = [
     {
         path: '/',
@@ -35,28 +38,28 @@ export const routes = [
             },
         ]
     },
-    // {
-    //     path: '/campaigns',
-    //     component: Campaign,
-    //     name: 'campaigns',
-    //     children: [
-    //         {
-    //             path: '',
-    //             component: ListCampaign,
-    //             name: 'login'
-    //         },
-    //         {
-    //             path: 'create',
-    //             component: CreateCampaign,
-    //             name: 'create'
-    //         },
-    //         {
-    //             path: 'logout',
-    //             component: Logout,
-    //             name: 'logout'
-    //         },
-    //     ]
-    // },
+    {
+        path: '/campaigns',
+        component: Campaign,
+        name: 'campaigns',
+        children: [
+            {
+                path: '',
+                component: ListCampaign,
+                name: 'listcampaign'
+            },
+            {
+                path: 'create',
+                component: CreateCampaign,
+                name: 'createcampaign'
+            },
+            {
+                path: ':id',
+                component: DetailsCampaign,
+                name: 'detailcampaign'
+            },
+        ]
+    },
     {
         path: '/profile',
         component: Profile,
