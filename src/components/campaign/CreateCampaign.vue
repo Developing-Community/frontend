@@ -1,6 +1,6 @@
 <template>
 <div>
-            <h1 style="text-align: center; margin:30px;">ثبت نام</h1>
+            <h1 style="text-align: center; margin:30px;">ثبت دوره جدید</h1>
             <div  v-if="loading" style="width: 100%; text-align: center;">
                 <img style="margin: auto;" src="/static/loading.gif" />
             </div>
@@ -51,6 +51,7 @@
                             if(response.statusText == "Created"){
                                 alert("با موفقیت ثبت شد");
                             }
+                            this.$router.push({ name: 'listcampaign' });
                             vinst.loading = false;
                         })
                         .catch(err => {

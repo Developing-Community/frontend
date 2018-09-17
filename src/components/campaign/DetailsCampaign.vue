@@ -47,19 +47,32 @@
         },
         methods: {
             getCampaign(){
-                this.loading = true;
-                var vinst = this;
-                axios.get(this.$store.state.hostUrl + '/api/campaigns/' + this.$route.params.id + "/",
-                { headers: {
-                'Authorization' : 'JWT ' + localStorage.getItem('t')
+                if(this.$store.state.isAuthenticated){
+                    this.loading = true;
+                    var vinst = this;
+                    axios.get(this.$store.state.hostUrl + '/api/campaigns/' + this.$route.params.id + "/",
+                    { headers: {
+                    'Authorization' : 'JWT ' + localStorage.getItem('t')
+                    }
+                    }).then(response => {
+                        console.log(response.data);
+                        vinst.campaign = response.data;
+                        vinst.loading = false;
+                    }).catch(err => {
+                        vinst.loading = false;
+                    })
+                } else {
+                    this.loading = true;
+                    var vinst = this;
+                    axios.get(this.$store.state.hostUrl + '/api/campaigns/' + this.$route.params.id + "/",
+                    ).then(response => {
+                        console.log(response.data);
+                        vinst.campaign = response.data;
+                        vinst.loading = false;
+                    }).catch(err => {
+                        vinst.loading = false;
+                    })
                 }
-                }).then(response => {
-                    console.log(response.data);
-                    vinst.campaign = response.data;
-                    vinst.loading = false;
-                }).catch(err => {
-                    vinst.loading = false;
-                })
             },
             submit(){
                 this.loading = true;
