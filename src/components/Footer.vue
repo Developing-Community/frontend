@@ -1,13 +1,15 @@
 <template>
-<footer class="container col-12" id="footer">
+<footer >
 
-    <div class="text-center center-block">
-        <a href="https://join.slack.com/t/developing-community/shared_invite/enQtMzc1ODU0NTA5MzAzLTE0NmI1MmY4ZGM5NjhiODY2MDFjNmFjYjg1OWExNTBjZmViMjRkMWE4Y2U1NDk1ZjdjYzM5ODhlZmYwZWQ0MTA"><i id="social-sl" class="fa fa-slack fa-3x social"></i></a>
-        <a href="http://twitter.com/devcommuntiy_ir"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-        <a href="http://t.me/dev_community_ir"><i id="social-tg" class="fa fa-telegram fa-3x social"></i></a>
-        <a href="http://instagram.com/dev_community"><i id="social-in" class="fa fa-instagram fa-3x social"></i></a>
-        <a href="https://github.com/Developing-Community"><i id="social-gh" class="fa fa-github fa-3x social"></i></a>
-        <a href="mailto:info@dev-community.ir"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+    <div class="ui grid ">
+        <div class="four wide column">
+            <a href="https://join.slack.com/t/developing-community/shared_invite/enQtMzc1ODU0NTA5MzAzLTE0NmI1MmY4ZGM5NjhiODY2MDFjNmFjYjg1OWExNTBjZmViMjRkMWE4Y2U1NDk1ZjdjYzM5ODhlZmYwZWQ0MTA"><i id="social-sl" class="slack icon big"></i></a>
+            <a href="http://twitter.com/devcommuntiy_ir"><i id="social-tw" class="twitter icon big"></i></a>
+            <a href="http://t.me/dev_community_ir"><i id="social-tg" class="telegram icon big"></i></a>
+            <a href="http://instagram.com/dev_community"><i id="social-in" class="instagram icon big"></i></a>
+            <a href="https://github.com/Developing-Community"><i id="social-gh" class="github icon big"></i></a>
+            <a href="mailto:info@dev-community.ir"><i id="social-em" class="envelope icon big"></i></a>
+        </div>
     </div>
 
 </footer>
@@ -18,5 +20,13 @@
     }
 </script>
 
-<style>
+<style scoped>
+
+div.ui.grid{
+    background-color: rgb(13, 32, 47);
+    
+}
+.four.wide.column{
+    margin: auto;
+}
 </style>

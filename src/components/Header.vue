@@ -37,8 +37,8 @@
             <!--<button class="btn btn-outline-success my-2 my-sm-0 font mr-1" type="submit">جست و جو</button>-->
         <!--</form>-->
     </div>
-    <a class="nav-link text-white font-weight-bold" id="nav-brand">Developing Community</a>
-    <img src="/static/img/logo-header-small.png" class="img">
+    <!-- <a class="nav-link text-white font-weight-bold" id="nav-brand">Developing Community</a>
+    <img src="/static/img/logo-header-small.png" class="img"> -->
 
 
 
