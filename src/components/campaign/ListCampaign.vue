@@ -18,6 +18,8 @@
                     :to="{name: 'detailcampaign', params: { id: campaign.id }}"
                     style="cursor: pointer">{{ campaign.title }}</router-link>
                                     <p>{{ campaign.description }}</p>
+                                    <p>شروع: {{ campaign.start_time }}</p>
+                                    <p>پایان: {{ campaign.end_time }}</p>
                             </div>
                     </div>
                 </div>
@@ -41,7 +43,7 @@
             getCampaigns(){
                 this.loading = true;
                 var vinst = this;
-                axios.get(this.$store.state.hostUrl + '/api/campaigns/').then(response => {
+                axios.get(this.$store.state.hostUrl + '/api/campaigns/study/').then(response => {
                     console.log(response.data);
                     vinst.campaigns = response.data.results;
                     vinst.loading = false;

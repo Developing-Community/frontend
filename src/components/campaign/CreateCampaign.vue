@@ -16,6 +16,16 @@
                             class="form-control"
                             v-model="campaign.description"></textarea>
                 </div>
+                <div class="form-group">
+                    <label>شروع</label>
+                    <input class="form-control" type="text" v-model="campaign.start_time">
+                    <p style="text-align: center;">YYYY-MM-DD</p>
+                </div>
+                <div class="form-group">
+                    <label>پایان</label>
+                    <input class="form-control" type="text" v-model="campaign.end_time">
+                    <p style="text-align: center;">YYYY-MM-DD</p>
+                </div>
                 <button class="btn btn-primary" @click="submit">تایید</button>
             </div>
             </div>
@@ -31,6 +41,8 @@
                 campaign: {
                     title: '',
                     description: '',
+                    start_time: '',
+                    end_time: ''
                 },
                 loading: false
             };
@@ -39,7 +51,7 @@
             submit() {
                 this.loading = true;
                 var vinst = this;
-                axios.post(this.$store.state.hostUrl + '/api/campaigns/create/', 
+                axios.post(this.$store.state.hostUrl + '/api/campaigns/study/create/', 
                 this.campaign, // the data to post
                 { headers: {
                 'Content-type': 'application/json',

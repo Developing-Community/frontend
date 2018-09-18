@@ -20,10 +20,34 @@
                             class="form-control"
                             v-model="campaign.description"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label>شروع</label>
+                        <input class="form-control" type="text" v-model="campaign.start_time">
+                        <p style="text-align: center;">YYYY-MM-DD</p>
+                    </div>
+                    <div class="form-group">
+                        <label>پایان</label>
+                        <input class="form-control" type="text" v-model="campaign.end_time">
+                        <p style="text-align: center;">YYYY-MM-DD</p>
+                    </div>
                     <button class="btn btn-primary" @click="submit">ثبت تغییرات</button>
                 </div>
                 <div v-else>
                     <p>{{ campaign.description }}</p>
+                    <p>شروع: {{ campaign.start_time }}</p>
+                    <p>پایان: {{ campaign.end_time }}</p>
+
+                    <div v-if="isAuthenticated && !campaign.accessable">
+                        <button v-if="campaign.enrolled" @click="()=>{}">
+                            لغو درخواست عضویت
+                        </button>
+                        <button v-else @click="requestEnrollment">
+                            درخواست عضویت
+                        </button>
+                    </div>
+                    <div v-else>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -40,10 +64,19 @@
                     id: 0,
                     title: '',
                     description: '',
+                    start_time: '',
+                    end_time: '',
+                    accessable: false,
+                    enrolled: false,
                 },
                 edit: false,
                 loading: false
             };
+        },
+        computed:{
+            isAuthenticated(){
+                return this.$store.getters.isAuthenticated;
+            }
         },
         methods: {
             getCampaign(){
@@ -59,6 +92,9 @@
                         vinst.campaign = response.data;
                         vinst.loading = false;
                     }).catch(err => {
+                        if(err.response.status == 404){
+                            this.$router.push({ name: 'listcampaign' });
+                        }
                         vinst.loading = false;
                     })
                 } else {
@@ -70,6 +106,9 @@
                         vinst.campaign = response.data;
                         vinst.loading = false;
                     }).catch(err => {
+                        if(err.response.status == 404){
+                            this.$router.push({ name: 'listcampaign' });
+                        }
                         vinst.loading = false;
                     })
                 }
@@ -90,6 +129,28 @@
                     console.log(response.statusText)
                     if(response.statusText == "OK"){
                         alert("تغییرات با موفقیت ثبت شد");
+                    }
+                    vinst.loading = false;
+                })
+                .catch(err => {
+                    console.log("bad");
+                    console.log(err.response);
+                    vinst.loading = false;
+                });
+            },
+            requestEnrollment() {
+                this.loading = true;
+                var vinst = this;
+                axios.post(this.$store.state.hostUrl + '/api/campaigns/' + this.campaign.id  +'/enroll/', 
+                { headers: {
+                'Content-type': 'application/json',
+                'Authorization' : 'JWT ' + localStorage.getItem('t')
+                }
+                }).then(response => {
+                    console.log("good");
+                    console.log(response.data);
+                    if(response.statusText == "Created"){
+                        this.campaign.enrolled = true;
                     }
                     vinst.loading = false;
                 })
