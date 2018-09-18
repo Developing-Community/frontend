@@ -22,7 +22,7 @@
             
         </div>
 
-        <div>
+        <div style="margin-bottom:30px;">
             <div class="ui container">
             <router-view></router-view>
             </div>
