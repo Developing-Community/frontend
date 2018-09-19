@@ -88,11 +88,11 @@
 .ui#container{
 
     min-height: 610px;
-    margin-top: 450px;
-    margin-bottom: 12px;
+    margin-bottom: 40px;
     background-color: white;
    
-    box-shadow: 2px 10px 70px 25px rgb(189, 179, 179);
+    box-shadow: 2px 0px 70px 5px rgb(189, 179, 179);
+    border-radius: 5px;
 
     padding: 50px 30px;
     padding-bottom: 0px !important;

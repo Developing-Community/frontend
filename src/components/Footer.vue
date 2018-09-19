@@ -23,10 +23,11 @@
 <style scoped>
 
 div.ui.grid{
-    background-color: #172a37;
-    
+    /* background-color: #172a37; */
+    background: transparent;
 }
 .four.wide.column{
     margin: auto;
+    padding-bottom: 30px;
 }
 </style>
