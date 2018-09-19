@@ -16,7 +16,7 @@
       </div>
       <div class="pusher" dir="rtl">
 
-                <!-- <img class="banner" src="/static/banner1.png" style="width: 100%; margin: 0px;" /> -->
+                <!-- <img class="banner" src="/static/banner1.png" style="width: 100%; height: 600px;margin: 0px;" /> -->
             <div class="ui fixed main menu" id="navbar">
             
                 <div class="right item ">
@@ -66,10 +66,15 @@
     font-family: IRANSans;
     src: url(/static/fonts/IranSansWeb.ttf) format("ttf");
 }
+.banner{
 
+    box-shadow: 2px 5px 40px 2px rgb(189, 179, 179);
+}
     #main{
-      background: url('http://localhost:8080/static/devcom.png');
-        padding-top: 400px;
+      /* background: url('http://localhost:8080/static/devcom.png'); */
+      background-color: #eeeeee;
+        padding-top: 100px;
+
     }
     
     .ui#navbar {
@@ -77,21 +82,14 @@
     font-family: IRANSans;
     
 }
-.ui.menu .item {
-    color: aliceblue;  
-}
-
-.ui.menu .right .item:hover {
-    color: aliceblue;  
-}
-
 .ui#container{
-
+    /* margin-top: 60px; */
+    /* visibility: hidden; */
     min-height: 610px;
     margin-bottom: 40px;
     background-color: white;
    
-    box-shadow: 2px 0px 70px 5px rgb(189, 179, 179);
+    box-shadow: 2px 0px 70px 1px rgb(189, 179, 179);
     border-radius: 5px;
 
     padding: 50px 30px;

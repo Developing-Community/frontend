@@ -30,4 +30,7 @@ div.ui.grid{
     margin: auto;
     padding-bottom: 30px;
 }
+.icon{
+    color: #475a67;
+}
 </style>
