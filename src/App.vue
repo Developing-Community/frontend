@@ -57,6 +57,8 @@
     }
 </script>
 
+
+
 <style>
 @font-face {
     font-family: IRANSans;
@@ -65,6 +67,8 @@
 
 body{
     background: url('/static/devcom.png');
+    
+
 }
 
 .ui#navbar {
@@ -84,13 +88,10 @@ body{
 
     margin-top: 450px;
     min-height: 700px;
+    margin-bottom: 12px;
     background-color: white;
-
-    /* -webkit-filter-back: blur(10px);
-    -moz-filter: blur(10px);
-    -o-filter: blur(10px);
-    -ms-filter: blur(10px);
-    filter: blur(10px); */
+   
+    box-shadow: 2px 10px 70px 25px rgb(189, 179, 179);
 
     padding: 50px 30px;
 }
