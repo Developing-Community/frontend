@@ -1,9 +1,7 @@
 <template>
 
     <div style="text-align: right">
-        <div style="margin-bottom:20px;">
-            <img class="ui small fluid image" src="/images/wireframe/image.png">
-        </div>
+
         <div class="ui stackable two column grid"> 
             <div class=" column">
                 <div style="text-align:center;">

@@ -59,17 +59,12 @@
     }
 </script>
 
+
+
 <style>
 @font-face {
     font-family: IRANSans;
     src: url(/static/fonts/IranSansWeb.ttf) format("ttf");
-}
-.banner{
-    /* -webkit-filter-back: blur(15px);
-    -moz-filter: blur(15px);
-    -o-filter: blur(15px);
-    -ms-filter: blur(15px);
-    filter: blur(15px);  */
 }
 
     #main{
@@ -93,13 +88,11 @@
 .ui#container{
 
     min-height: 610px;
+    margin-top: 450px;
+    margin-bottom: 12px;
     background-color: white;
-
-    /* -webkit-filter-back: blur(10px);
-    -moz-filter: blur(10px);
-    -o-filter: blur(10px);
-    -ms-filter: blur(10px);
-    filter: blur(10px); */
+   
+    box-shadow: 2px 10px 70px 25px rgb(189, 179, 179);
 
     padding: 50px 30px;
     padding-bottom: 0px !important;
