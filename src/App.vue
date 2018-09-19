@@ -2,33 +2,37 @@
 
 
     <div>
-
-        <div class="following bar">
+        
+      <div class="ui right sidebar inverted vertical menu">
+        <a class="item">
+          1
+        </a>
+        <a class="item">
+          2
+        </a>
+        <a class="item">
+          3
+        </a>
+      </div>
+      <div class="pusher" dir="rtl">
+            <div class="ui fixed main menu" id="navbar">
             
-            <div class="ui pointing menu">
-
                 <div class="right item ">
                     <a class="item" id = "Opener"> <i class="content icon"></i> </a>
-                    <a class="item">گروهک</a>
                     <a class="item">تست</a>
+                    <a class="item">گروهک</a>
                 </div>
-            </div>
-
-            <div class="ui sidebar inverted vertical  menu">
-                <div class="right item"> Home </div>
-                <div class="item">Contact </div>
-                <div class="item">about </div>
-            </div> 
             
-        </div>
-
-        <div style="margin-bottom:30px;">
-            <div class="ui container">
-            <router-view></router-view>
             </div>
-        </div>
+
+            <div id="container" class="ui container">
+                <router-view></router-view>
+            </div>
         
-        <app-footer></app-footer>
+            <app-footer></app-footer>
+      </div>
+
+       
     </div>
 
     
@@ -59,8 +63,12 @@
     src: url(/static/fonts/IranSansWeb.ttf) format("ttf");
 }
 
-.ui.menu {
-    background-color: rgb(34, 48, 82);
+body{
+    background: url('/static/devcom.png');
+}
+
+.ui#navbar {
+    background-color: transparent;
     font-family: IRANSans;
     
 }
@@ -70,5 +78,20 @@
 
 .ui.menu .right .item:hover {
     color: aliceblue;  
+}
+
+.ui#container{
+
+    margin-top: 450px;
+    min-height: 700px;
+    background-color: white;
+
+    /* -webkit-filter-back: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px); */
+
+    padding: 50px 30px;
 }
 </style>
