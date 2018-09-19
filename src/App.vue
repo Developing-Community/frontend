@@ -1,7 +1,7 @@
 <template>
 
 
-    <div>
+    <div id="main">
         
       <div class="ui right sidebar inverted vertical menu">
         <a class="item">
@@ -15,6 +15,8 @@
         </a>
       </div>
       <div class="pusher" dir="rtl">
+
+                <!-- <img class="banner" src="/static/banner1.png" style="width: 100%; margin: 0px;" /> -->
             <div class="ui fixed main menu" id="navbar">
             
                 <div class="right item ">
@@ -62,13 +64,21 @@
     font-family: IRANSans;
     src: url(/static/fonts/IranSansWeb.ttf) format("ttf");
 }
-
-body{
-    background: url('/static/devcom.png');
+.banner{
+    /* -webkit-filter-back: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);  */
 }
 
-.ui#navbar {
-    background-color: transparent;
+    #main{
+      background: url('http://localhost:8080/static/devcom.png');
+        padding-top: 400px;
+    }
+    
+    .ui#navbar {
+        background: transparent;
     font-family: IRANSans;
     
 }
@@ -82,8 +92,7 @@ body{
 
 .ui#container{
 
-    margin-top: 450px;
-    min-height: 700px;
+    min-height: 610px;
     background-color: white;
 
     /* -webkit-filter-back: blur(10px);
@@ -93,5 +102,6 @@ body{
     filter: blur(10px); */
 
     padding: 50px 30px;
+    padding-bottom: 0px !important;
 }
 </style>

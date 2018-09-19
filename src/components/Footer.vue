@@ -23,7 +23,7 @@
 <style scoped>
 
 div.ui.grid{
-    background-color: rgb(13, 32, 47);
+    background-color: #172a37;
     
 }
 .four.wide.column{
