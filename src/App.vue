@@ -1,41 +1,13 @@
 <template>
 
 
-    <div id="main">
-        
-      <div class="ui right sidebar inverted vertical menu">
-        <a class="item">
-          1
-        </a>
-        <a class="item">
-          2
-        </a>
-        <a class="item">
-          3
-        </a>
-      </div>
-      <div class="pusher" dir="rtl">
-
-                <!-- <img class="banner" src="/static/banner1.png" style="width: 100%; height: 600px;margin: 0px;" /> -->
-            <div class="ui fixed main menu" id="navbar">
-            
-                <div class="right item ">
-                    <a class="item" id = "Opener"> <i class="content icon"></i> </a>
-                    <a class="item">تست</a>
-                    <a class="item">گروهک</a>
-                </div>
-            
-            </div>
-
-            <div id="container" class="ui container">
+      <div class="ui pusher">
                 <router-view></router-view>
-            </div>
         
             <app-footer></app-footer>
       </div>
 
        
-    </div>
 
     
 
@@ -46,16 +18,14 @@
 <script>
     import Header from "./components/Header.vue"
     import Footer from "./components/Footer.vue"
-    $(document).ready(function(){
-    $('#Opener').click(function(){$('.ui.sidebar').sidebar('toggle')});
-    });
+    
 
     export default {
         components:
         {
             appHeader: Header,
             appFooter: Footer
-        }
+        },
     }
 </script>
 
@@ -70,10 +40,10 @@
 
     box-shadow: 2px 5px 40px 2px rgb(189, 179, 179);
 }
-    #main{
+    .pusher{
       /* background: url('http://localhost:8080/static/devcom.png'); */
       background-color: #eeeeee;
-        padding-top: 100px;
+        padding-top: 0px;
 
     }
     
@@ -83,7 +53,7 @@
     
 }
 .ui#container{
-    /* margin-top: 60px; */
+    margin-top: 150px;
     /* visibility: hidden; */
     min-height: 610px;
     margin-bottom: 40px;
