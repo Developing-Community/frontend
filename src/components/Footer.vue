@@ -1,8 +1,8 @@
 <template>
 <footer >
 
-    <div class="ui grid ">
-        <div class="four wide column">
+    <div class="ui stackable four column grid">
+        <div class="column">
             <a href="https://join.slack.com/t/developing-community/shared_invite/enQtMzc1ODU0NTA5MzAzLTE0NmI1MmY4ZGM5NjhiODY2MDFjNmFjYjg1OWExNTBjZmViMjRkMWE4Y2U1NDk1ZjdjYzM5ODhlZmYwZWQ0MTA"><i id="social-sl" class="slack icon big"></i></a>
             <a href="http://twitter.com/devcommuntiy_ir"><i id="social-tw" class="twitter icon big"></i></a>
             <a href="http://t.me/dev_community_ir"><i id="social-tg" class="telegram icon big"></i></a>
@@ -25,10 +25,11 @@
 div.ui.grid{
     /* background-color: #172a37; */
     background: transparent;
-}
-.four.wide.column{
-    margin: auto;
     padding-bottom: 30px;
+}
+.ui .column{
+    margin: auto;
+    
 }
 .icon{
     color: #475a67;
