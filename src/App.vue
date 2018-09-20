@@ -36,9 +36,8 @@
     font-family: IRANSans;
     src: url(/static/fonts/IranSansWeb.ttf) format("ttf");
 }
-.banner{
-
-    box-shadow: 2px 5px 40px 2px rgb(189, 179, 179);
+.menu.secondary {
+    border: 0px;
 }
     .pusher{
       /* background: url('http://localhost:8080/static/devcom.png'); */
