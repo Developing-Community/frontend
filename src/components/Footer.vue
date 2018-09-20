@@ -25,10 +25,11 @@
 div.ui.grid{
     /* background-color: #172a37; */
     background: transparent;
-}
-.column{
-    margin: auto;
     padding-bottom: 30px;
+}
+.ui .column{
+    margin: auto;
+    
 }
 .icon{
     color: #475a67;
