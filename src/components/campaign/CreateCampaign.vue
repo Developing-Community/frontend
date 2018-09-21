@@ -1,34 +1,31 @@
 <template>
-<div>
-            <h1 style="text-align: center; margin:30px;">ثبت دوره جدید</h1>
-            <div  v-if="loading" style="width: 100%; text-align: center;">
-                <img style="margin: auto;" src="/static/loading.gif" />
+    <div class="ui form" >
+        <h1 style="text-align: center; margin:30px;">ثبت دوره جدید</h1>
+        <div  v-if="loading" style="width: 100%; text-align: center;">
+            <img style="margin: auto;" src="/static/loading.gif" />
+        </div>
+        <div v-else>
+            <div class="field">
+                <label>عنوان</label>
+                <input type="text" v-model="campaign.title">
+            </div>  
+            <div class="field">
+                <label>توضیحات</label>
+                    <textarea rows="4"  v-model="campaign.description"></textarea>
             </div>
-            <div v-else>
-                <div class="form-group">
-                    <label>عنوان</label>
-                    <input class="form-control" type="text" v-model="campaign.title">
-                </div>  
-                <div class="form-group">
-                    <label>توضیحات</label>
-                        <textarea
-                            rows="5"
-                            class="form-control"
-                            v-model="campaign.description"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>شروع</label>
-                    <input class="form-control" type="text" v-model="campaign.start_time">
-                    <p style="text-align: center;">YYYY-MM-DD</p>
-                </div>
-                <div class="form-group">
-                    <label>پایان</label>
-                    <input class="form-control" type="text" v-model="campaign.end_time">
-                    <p style="text-align: center;">YYYY-MM-DD</p>
-                </div>
-                <button class="btn btn-primary" @click="submit">تایید</button>
+            <div class="field">
+                <label>شروع</label>
+                <input type="text" v-model="campaign.start_time" placeholder="YYYY/MM/DD">
+                
             </div>
+            <div class="field">
+                <label>پایان</label>
+                <input type="text" v-model="campaign.end_time" placeholder="YYYY/MM/DD">
+                
             </div>
+            <button class="ui inverted primary button" @click="submit">تایید</button>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -83,6 +80,12 @@
 </script>
 
 <style scoped>
+.ui.form{
+    direction: rtl;
+}
+textarea{
+    max-width: 600px;
+}
 input {
     max-width: 500px;
     margin: auto;
