@@ -171,7 +171,9 @@ h5 {
   background: url('/static/banner.png');
 }
 .masthead.segment {
-  min-height: 672px;
+  min-height: 760px;
+
+  background-size: cover;
   padding: 1em 0em;
 }
 .masthead .logo.item img {
@@ -227,6 +229,10 @@ h5 {
   display: none;
 }
 
+  .masthead h1.ui.header {
+    margin-top: 250px;
+  }
+
 @media only screen and (max-width: 700px) {
   .ui.fixed.menu {
     display: none !important;
@@ -238,15 +244,11 @@ h5 {
   .secondary.pointing.menu .toc.item {
     display: block;
   }
-  .masthead.segment {
-    min-height: 350px;
-  }
   .masthead h1.ui.header {
-    font-size: 2em;
-    margin-top: 1.5em;
+    margin-top: 200px;
+    font-size: 3em;
   }
   .masthead h2 {
-    margin-top: 0.5em;
     font-size: 1.5em;
   }
 }
