@@ -1,5 +1,5 @@
 <template>
-<div class="ui container">
+<div id="container" class="ui container">
     <div class="top_container ">
         <div class="content">
         <div v-if="isAuthenticated">
