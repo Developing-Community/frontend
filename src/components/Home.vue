@@ -164,6 +164,11 @@ h5 {
   color: #2900a8;
   padding-top: 10px;
 }
+
+#nav {
+  border: 0px;
+  padding: 10px;
+}
 .hidden.menu {
   display: none;
 }
