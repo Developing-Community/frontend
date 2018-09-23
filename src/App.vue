@@ -166,6 +166,8 @@ export default {
       }
 
       if (vinst.$route.name != "home") {
+            $(".menu.secondary")
+              .css("border-bottom", "1px solid gray");
         animationEnabled = true;
         // reset steps count
         steps_count = 0;
@@ -177,6 +179,8 @@ export default {
 
         // go go go!
         window.requestAnimationFrame(updateGradient);
+      } else {
+
       }
 
       $(".masthead,#top").visibility({
@@ -255,9 +259,8 @@ export default {
 #nav .ui.container .right.item {
   padding: 7px 15px;
 }
-#nav {
+.menu.secondary {
   border: 0px;
-  border-bottom: 1px solid gray;
   padding: 10px;
 }
 .pusher {
