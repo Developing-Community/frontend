@@ -3,12 +3,24 @@
     <div class="ui inverted vertical masthead center aligned segment">
         <div class="ui text container">
             <h1 class="ui inverted header">
-                Imagine-a-Company
+              محلی برای یادگیری
                 </h1>
-            <h2>Do whatever you want when you want to.</h2>
-            <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+            <h2>متناسب با نیازهای جامعه امروزی</h2>
+            <div class="ui huge primary button" v-scroll-to="'#start'" style="margin-top:10px;">اطلاعات بیشتر <i class="right arrow icon"></i></div>
         </div>
     </div>
+
+<div class="ui vertical stripe segment  center aligned" id="start">
+    <div class="ui text container">
+      <h3 class="ui header">هدف ما</h3>
+      <p>با توجه به نقدهای وارد بر نظام آموزشی فعلی و کافی نبودن تحصیلات برای پیشرفت در دنیای امروز، ایده این کامیونیتی در ذهنمان شکل گرفت
+        و تصمیم گرفتیم پلتفرمی ایجاد کنیم که ایده ها و استعدادهای شما را به ثمر برساند، بتوانید در کنار دیگر افراد یاد بگیرید و یاد بدهید و در فعالیت های مختلف همکاری کنید. منظور از فعالیت، هر فعالیتی در هر حوزه ای هست. 
+                از یک تحقیق گروهی در علوم انسانی و پایه گرفته تا
+                    یک پروژه ی فیلم سازی یا برنامه نویسی
+      </p>
+      <a class="ui large button">I'm Still Quite Interested</a>
+    </div>
+  </div>
 
   <div class="ui vertical stripe segment">
     <div class="ui middle aligned stackable grid container">

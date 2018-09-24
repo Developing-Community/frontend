@@ -8,14 +8,16 @@ import App from './App.vue'
 import { routes } from './routes';
 import { rejects } from 'assert';
 
-
+var VueScrollTo = require('vue-scrollto');
+ 
+Vue.use(VueScrollTo)
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
 
 // const host = window.location.href.split("/")[0] + "//" + window.location.href.split("/")[2]
-const host = "https://dev-community.ir"
-// const host = "http://127.0.0.1:8081"
+// const host = "https://dev-community.ir"
+const host = "http://127.0.0.1:8081"
 // const host = "http://127.0.0.1:8000"
 
 

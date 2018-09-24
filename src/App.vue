@@ -252,10 +252,6 @@ export default {
 
 
 <style>
-@font-face {
-  font-family: IRANSans;
-  src: url(/static/fonts/IranSansWeb.ttf) format("ttf");
-}
 #nav .ui.container .right.item {
   padding: 7px 15px;
 }
