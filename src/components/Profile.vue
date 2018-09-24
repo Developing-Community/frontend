@@ -7,7 +7,7 @@
                 <img style="margin: auto;" src="/static/loading.gif" />
             </div>
             <div v-else>
-                <img :src="$store.state.hostUrl + profile.profile_image" style="height: 300px; width: 300px;" />
+                <img :src="profile.profile_image" style="height: 300px; width: 300px;" />
                 <h1 style="text-align: center; margin:30px;">{{ profile.first_name }} {{ profile.last_name }}</h1>
                 <button class="btn btn-primary" @click="edit = !edit">ویرایش</button>
                 <div v-if="edit">
@@ -50,6 +50,7 @@ export default {
         first_name: "",
         last_name: "",
         bio: "",
+        profile_image: ""
       },
       edit: false,
       loading: false
@@ -93,6 +94,11 @@ export default {
         .then(response => {
           console.log(response.data);
           vinst.profile = response.data;
+          if(vinst.profile.profile_image == null){
+            vinst.profile.profile_image = "/static/white-image.png";
+          } else {
+            vinst.profile.profile_image = $store.state.hostUrl + vinst.profile.profile_image;
+          }
           vinst.loading = false;
         })
         .catch(err => {
