@@ -1,21 +1,27 @@
 <template>
-<div>
+    <div class="ui form" style="direction:rtl;">
             <h1 style="text-align: center; margin:30px;">ثبت نام</h1>
             <div  v-if="loading" style="width: 100%; text-align: center;">
                 <img style="margin: auto;" src="/static/loading.gif" />
             </div>
             <div v-else>
-                <div class="form-group">
-                    <label>نام کاربری</label>
-                    <input class="form-control" type="text" v-model="user.username">
+                <div class="field ui centered grid">
+                    <div class="nine wide field">
+                        <label>نام کاربری</label>
+                        <input class="form-control" type="text" v-model="user.username">
+                    </div>
                 </div>  
-                <div class="form-group">
-                    <label>ایمیل</label>
-                    <input class="form-control" type="text" v-model="user.email">
+                <div class="field ui centered grid">
+                    <div class="nine wide field">
+                        <label>ایمیل</label>
+                        <input class="form-control" type="text" v-model="user.email">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>کلمه عبور</label>
-                    <input class="form-control" type="password" v-model="user.password">
+                <div class="field ui centered grid">
+                    <div class="nine wide field">
+                        <label>کلمه عبور</label>
+                        <input class="form-control" type="password" v-model="user.password">
+                    </div>
                 </div>
                 <!-- <div class="form-group">
                     <label>نام</label>
@@ -25,10 +31,10 @@
                     <label>نام خانوادگی</label>
                     <input class="form-control" @keyup.enter="submit" type="text" v-model="user.last_name">
                 </div> -->
-                <button class="btn btn-primary" style="margin: 10px;" @click="$router.push({name: 'login'})">ورود</button>
-                <button class="btn btn-primary" @click="submit">ثبت نام</button>
+                <button class="ui inverted primary button" style="margin: 10px;" @click="$router.push({name: 'login'})">ورود</button>
+                <button class="ui inverted primary button" @click="submit">ثبت نام</button>
             </div>
-</div>
+    </div>
 </template>
 
 <script>
