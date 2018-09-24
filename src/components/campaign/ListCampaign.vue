@@ -8,19 +8,25 @@
             <div style="text-align: center;" v-else>
                 <hr/>
                 
-                <div class="row">
-                    <div v-for="campaign in campaigns" style="max-width: 400px;">
+                <div class="ui stackable four column grid">
+                    <div class="column" v-for="campaign in campaigns" style="max-width: 400px;">
                         
+                        <div >
                             <div class="panel-body quote">
 
-            <router-link
-                    tag="h2"
-                    :to="{name: 'detailcampaign', params: { id: campaign.id }}"
-                    style="cursor: pointer">{{ campaign.title }}</router-link>
-                                    <p>{{ campaign.description }}</p>
-                                    <p>شروع: {{ campaign.start_time }}</p>
-                                    <p>پایان: {{ campaign.end_time }}</p>
+                                <router-link
+                                    tag="h2"
+                                    :to="{name: 'detailcampaign', params: { id: campaign.id }}"
+                                    style="cursor: pointer">{{ campaign.title }}</router-link>
+                                <p>{{ campaign.description }}</p>
+                                <p>شروع: {{ campaign.start_time }}</p>
+                                <p>پایان: {{ campaign.end_time }}</p>
+                                
                             </div>
+
+                        </div>
+
+
                     </div>
                 </div>
 
