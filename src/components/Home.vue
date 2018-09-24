@@ -10,26 +10,29 @@
         </div>
     </div>
 
-<div class="ui vertical stripe segment  center aligned" id="start">
-    <div class="ui text container">
-      <h3 class="ui header">هدف ما</h3>
-      <p>با توجه به نقدهای وارد بر نظام آموزشی فعلی و کافی نبودن تحصیلات برای پیشرفت در دنیای امروز، ایده این کامیونیتی در ذهنمان شکل گرفت
-        و تصمیم گرفتیم پلتفرمی ایجاد کنیم که ایده ها و استعدادهای شما را به ثمر برساند، بتوانید در کنار دیگر افراد یاد بگیرید و یاد بدهید و در فعالیت های مختلف همکاری کنید. منظور از فعالیت، هر فعالیتی در هر حوزه ای هست. 
-                از یک تحقیق گروهی در علوم انسانی و پایه گرفته تا
-                    یک پروژه ی فیلم سازی یا برنامه نویسی
-      </p>
-      <a class="ui large button">I'm Still Quite Interested</a>
-    </div>
-  </div>
-
-  <div class="ui vertical stripe segment">
+  <div class="ui vertical stripe segment" id="start">
     <div class="ui middle aligned stackable grid container">
       <div class="row">
-        <div class="eight wide column">
-          <h3 class="ui header">We Help Companies and Companions</h3>
-          <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
-          <h3 class="ui header">We Make Bananas That Can Dance</h3>
-          <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+        <div class="ten wide column center aligned">
+          <h3 class="ui header">هدف ما</h3>
+          <p style="margin-top:30px;line-height:35px;">با توجه به نقدهای وارد بر نظام آموزشی فعلی و کافی نبودن تحصیلات برای پیشرفت در دنیای امروز، ایده این کامیونیتی در ذهنمان شکل گرفت
+            و تصمیم گرفتیم پلتفرمی ایجاد کنیم که ایده ها و استعدادهای شما را به ثمر برساند، بتوانید در کنار دیگر افراد یاد بگیرید و یاد بدهید و در فعالیت های مختلف همکاری کنید. منظور از فعالیت، هر فعالیتی در هر حوزه ای هست. 
+                    از یک تحقیق گروهی در علوم انسانی و پایه گرفته تا
+                        یک پروژه ی فیلم سازی یا برنامه نویسی
+          </p> 
+        </div>
+        <div class="four wide right floated column">
+          <img src="static/white-image.png" class="ui large bordered rounded image">
+        </div>
+      </div>
+      <div class="row">
+        <div class="nine wide column center aligned">
+          <h3 class="ui header">هدف ما</h3>
+          <p style="margin-top:30px;line-height:30px;">با توجه به نقدهای وارد بر نظام آموزشی فعلی و کافی نبودن تحصیلات برای پیشرفت در دنیای امروز، ایده این کامیونیتی در ذهنمان شکل گرفت
+            و تصمیم گرفتیم پلتفرمی ایجاد کنیم که ایده ها و استعدادهای شما را به ثمر برساند، بتوانید در کنار دیگر افراد یاد بگیرید و یاد بدهید و در فعالیت های مختلف همکاری کنید. منظور از فعالیت، هر فعالیتی در هر حوزه ای هست. 
+                    از یک تحقیق گروهی در علوم انسانی و پایه گرفته تا
+                        یک پروژه ی فیلم سازی یا برنامه نویسی
+          </p> 
         </div>
         <div class="six wide right floated column">
           <img src="static/white-image.png" class="ui large bordered rounded image">
