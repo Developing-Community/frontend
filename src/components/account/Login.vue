@@ -1,22 +1,27 @@
 <template>
-<div>
-<h1 style="text-align: center; margin:30px;">ورود</h1>
-            <div v-if="loading" style="width: 100%; text-align: center;">
-                <img style="margin: auto;" src="/static/loading.gif" />
-            </div>
-            <div v-else>
-                <div class="form-group">
-                    <label>نام کاربری</label>
-                    <input class="form-control" type="text" v-model="user.username">
+    <div class="ui form segment" style="direction:rtl;">
+
+        <h1 style="text-align: center; margin:30px;">ورود</h1>
+                <div v-if="loading" style="width: 100%; text-align: center;">
+                    <img style="margin: auto;" src="/static/loading.gif" />
                 </div>
-                <div class="form-group">
-                    <label>کلمه عبور</label>
-                    <input class="form-control" @keyup.enter="submit" type="password" v-model="user.password">
+                <div class="" v-else>
+                    <div class="field ui centered grid" >
+                        <div class="five wide field">
+                            <label>نام کاربری</label>
+                            <input class="form-control" type="text" v-model="user.username">
+                         </div>
+                    </div>
+                    <div class="field ui centered grid">
+                        <div class="five wide field">
+                            <label>کلمه عبور</label>
+                            <input class="form-control" @keyup.enter="submit" type="password" v-model="user.password">
+                        </div>
+                    </div>
+                    <button class="ui inverted primary button" style="margin: 10px;" @click="submit">ورود</button>
+                    <button class="ui inverted primary button" style="margin: 10px;" @click="$router.push({name: 'register'})">ثبت نام</button>
                 </div>
-                <button class="btn btn-primary" style="margin: 10px;" @click="submit">ورود</button>
-                <button class="btn btn-primary" style="margin: 10px;" @click="$router.push({name: 'register'})">ثبت نام</button>
-            </div>
-</div>
+    </div>
 </template>
 
 <script>

@@ -16,8 +16,8 @@ Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
 
 // const host = window.location.href.split("/")[0] + "//" + window.location.href.split("/")[2]
-// const host = "https://dev-community.ir"
-const host = "http://127.0.0.1:8081"
+const host = "https://dev-community.ir"
+// const host = "http://127.0.0.1:8081"
 // const host = "http://127.0.0.1:8000"
 
 
