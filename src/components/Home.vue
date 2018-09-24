@@ -54,7 +54,7 @@
       </div>
 
         <h4 class="ui horizontal header divider">
-          <a style="font-size:140%;">از ایده تا کار</a>
+          <a style="font-size:140%;" href="#">از ایده تا کار</a>
         </h4>
 
       <div class="row">
@@ -81,7 +81,7 @@
       </div>
 
         <h4 class="ui horizontal header divider">
-          <a style="font-size:140%;">برای پیوستن به ما آماده اید؟</a>
+          <a style="font-size:140%;" href="#">برای پیوستن به ما آماده اید؟</a>
         </h4>
       <div class="row centered">
         <router-link :to="{name: 'register'}" tag="a" class="ui large button">ثبت نام و دریافت لینک گروه ها</router-link>
