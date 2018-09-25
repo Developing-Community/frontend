@@ -4,7 +4,9 @@
                 <img src="/static/img/Logo.png" id="toplogo"/>
         </div>
 
-
+        <div style="display:none">
+            <router-view></router-view>
+        </div>
         <div class="ui container contentnav">
             <div class="ui icon input" :class="{faded: fadedSearch, notfaded: !fadedSearch}">
                 <i class="search icon"></i>
@@ -35,24 +37,8 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                fadedSearch: true
-            };
-        },
-        computed:{
-            isAuthenticated(){
-                return this.$store.getters.isAuthenticated;
-            }
-        },
-        created() {
-            var vinst = this;
-            $(document).ready(function() {
-                $(".dropdown").dropdown();
             var animationEnabled = false;
             var animationFinished = true;
-            var $div = document.getElementById("nav");
             // rgb vals of the gradients
             var gradients = [
                 { start: [0, 0, 72], stop: [133, 0, 133] },
@@ -75,9 +61,9 @@
                 stop: [0, 0, 0]
             }; // the current rgb values, gets altered by rgb steps on each interval
             var prefixes = ["-webkit-", "-moz-", "-o-", "-ms-", ""]; // for looping through adding styles
-            var div_style = $div.style; // short cut to actually adding styles
             var color1, color2;
 
+            var x = 1;
             // sets next current and next index of gradients array
             function set_next(num) {
                 return num + 1 < gradients.length ? num + 1 : 0;
@@ -108,11 +94,11 @@
                 animationFinished = false;
                 // update the current rgb vals
                 for (var key in rgb_values) {
-                if (rgb_values.hasOwnProperty(key)) {
-                    for (var i = 0; i < 3; i++) {
-                    rgb_values[key][i] += rgb_steps[key][i];
+                    if (rgb_values.hasOwnProperty(key)) {
+                        for (var i = 0; i < 3; i++) {
+                        rgb_values[key][i] += rgb_steps[key][i];
+                        }
                     }
-                }
                 }
 
                 // generate CSS rgb values
@@ -142,14 +128,14 @@
                 color2 = t_color2;
 
                 // update DOM element style attribute
-                div_style.backgroundImage =
+                document.getElementById("nav").style.backgroundImage =
                     "-webkit-gradient(linear, left bottom, right top, from(" +
                     color1 +
                     "), to(" +
                     color2 +
                     "))";
                 for (var i = 0; i < 4; i++) {
-                    div_style.backgroundImage =
+                    document.getElementById("nav").style.backgroundImage =
                     prefixes[i] +
                     "linear-gradient(45deg, " +
                     color1 +
@@ -168,13 +154,86 @@
                 }
 
                 if (
-                div_style.backgroundImage.indexOf("gradient") != -1 &&
+                document.getElementById("nav").style.backgroundImage.indexOf("gradient") != -1 &&
                 animationEnabled
                 ) {
                 window.requestAnimationFrame(updateGradient);
                 }
             }
-
+    export default {
+        data() {
+            return {
+                fadedSearch: true,
+                navStartPosition: 0
+            };
+        },
+        watch:{
+            $route (to, from){
+                this.navStartPosition = to.name == 'home' ? 700: 0;
+                var vinst = this;
+                console.log("sag1")
+                $(document).ready(function() {
+                    if ($(window).scrollTop() <= vinst.navStartPosition) {
+                        console.log("sag3")
+                        animationEnabled = false;
+                        if (to.name == "home") {
+                            $(".menu.secondary")
+                            .animate({ padding: "10px", opacity: "1" }, "fast")
+                            .css("border-bottom", "0px")
+                            .css("background", "none");
+                        } else {
+                            $(".menu.secondary").animate({ padding: "10px" }, "fast");
+                            animationEnabled = true;
+                            if (animationFinished) {
+                                // reset steps count
+                                steps_count = 0;
+                                // set new indexs
+                                currentIndex = set_next(currentIndex);
+                                nextIndex = set_next(nextIndex);
+                                // calc steps
+                                calc_steps();
+                            }
+                            // go go go!
+                            window.requestAnimationFrame(updateGradient);
+                        }
+                        x = 1;
+                    }
+                    else {
+                        if (to.name == "home") {
+                            $(".menu.secondary")
+                            .css("opacity", "0")
+                            .animate({ padding: "0px", opacity: "1" }, "fast")
+                            .css("border-bottom", "1px solid gray");
+                        } else {
+                            $(".menu.secondary").animate({ padding: "0px" }, "fast");
+                        }
+                        animationEnabled = true;
+                        if (animationFinished) {
+                            // reset steps count
+                            steps_count = 0;
+                            // set new indexs
+                            currentIndex = set_next(currentIndex);
+                            nextIndex = set_next(nextIndex);
+                            // calc steps
+                            calc_steps();
+                        }
+                        // go go go!
+                        window.requestAnimationFrame(updateGradient);
+                        x = 0;
+                    }
+                });
+            }
+        },
+        computed:{
+            isAuthenticated(){
+                return this.$store.getters.isAuthenticated;
+            }
+        },
+        created() {
+            this.navStartPosition = this.$route.name == "home" ? 700: 0;
+            var vinst = this;
+            $(document).ready(function() {
+            $(".dropdown").dropdown();
             if (vinst.$route.name != "home") {
                     $(".menu.secondary")
                     .css("border-bottom", "1px solid gray");
@@ -189,13 +248,61 @@
 
                 // go go go!
                 window.requestAnimationFrame(updateGradient);
-            } else {
-
             }
 
-            $(".masthead,#top").visibility({
-                once: false,
-                onBottomPassed: function() {
+            // $(".masthead,#top").visibility({
+            //     once: false,
+            //     onBottomPassed: function() {
+            //     if (vinst.$route.name == "home") {
+            //         $(".menu.secondary")
+            //         .css("opacity", "0")
+            //         .animate({ padding: "0px", opacity: "1" }, "fast")
+            //         .css("border-bottom", "1px solid gray");
+            //     } else {
+            //         $(".menu.secondary").animate({ padding: "0px" }, "fast");
+            //     }
+            //     animationEnabled = true;
+            //     if (animationFinished) {
+            //         // reset steps count
+            //         steps_count = 0;
+            //         // set new indexs
+            //         currentIndex = set_next(currentIndex);
+            //         nextIndex = set_next(nextIndex);
+            //         // calc steps
+            //         calc_steps();
+            //     }
+            //     // go go go!
+            //     window.requestAnimationFrame(updateGradient);
+            //     },
+            //     onBottomPassedReverse: function() {
+            //     animationEnabled = false;
+            //     if (vinst.$route.name == "home") {
+            //         $(".menu.secondary")
+            //         .animate({ padding: "10px", opacity: "1" }, "fast")
+            //         .css("border-bottom", "0px")
+            //         .css("background", "none");
+            //     } else {
+            //         $(".menu.secondary").animate({ padding: "10px" }, "fast");
+            //     }
+            //     }
+            // });
+
+            $(window).scroll(function () {
+                if ($(window).scrollTop() <= vinst.navStartPosition) {
+                    if(x == 0){
+                        animationEnabled = false;
+                        if (vinst.$route.name == "home") {
+                            $(".menu.secondary")
+                            .animate({ padding: "10px", opacity: "1" }, "fast")
+                            .css("border-bottom", "0px")
+                            .css("background", "none");
+                        } else {
+                            $(".menu.secondary").animate({ padding: "10px" }, "fast");
+                        }
+                        x = 1;
+                    }
+                }
+                else if (x == 1) {
                 if (vinst.$route.name == "home") {
                     $(".menu.secondary")
                     .css("opacity", "0")
@@ -216,44 +323,9 @@
                 }
                 // go go go!
                 window.requestAnimationFrame(updateGradient);
-                },
-                onBottomPassedReverse: function() {
-                animationEnabled = false;
-                if (vinst.$route.name == "home") {
-                    $(".menu.secondary")
-                    .animate({ padding: "10px", opacity: "1" }, "fast")
-                    .css("border-bottom", "0px")
-                    .css("background", "none");
-                } else {
-                    $(".menu.secondary").animate({ padding: "10px" }, "fast");
-                }
+                    x = 0;
                 }
             });
-
-            // var x = 1;
-            // $(window).scroll(function () {
-            //     if ($(window).scrollTop() == 0) {
-            //         $(".menu.secondary").animate({ padding: '10px' }, "fast").css("border-bottom", "0px").css("background", "none");
-            //         x = 1;
-            //     }
-            //     else if (x == 1) {
-            //         $(".menu.secondary").animate({ padding: '0px' }, "fast").css("border-bottom", "1px solid gray");
-            //         // target to give background to
-
-            //         // reset steps count
-            //         steps_count = 0;
-            //         // set new indexs
-            //         currentIndex = set_next(currentIndex);
-            //         nextIndex = set_next(nextIndex);
-            //         // calc steps
-            //         calc_steps();
-
-            //         // go go go!
-
-            //         x = 0;
-            //         window.requestAnimationFrame(updateGradient);
-            //     }
-            // });
             });
         }
     }

@@ -3,7 +3,6 @@
 
       <div class="ui pusher">
 
-    <div id="top" v-if="$route.name != 'home'" style="height: 1px;"></div>
                 <router-view></router-view>
         
             <app-footer></app-footer>
