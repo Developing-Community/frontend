@@ -18,6 +18,14 @@
             isAuthenticated(){
                 return this.$store.getters.isAuthenticated;
             }
+        },
+        created(){
+            $(document).ready(function() {
+                $("#right-menu")
+                    .first()
+                    .sidebar("setting", { transition: "push" })
+                    .sidebar("attach events", ".mobile-button");
+            });
         }
     }
 </script>
