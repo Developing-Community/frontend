@@ -18,11 +18,11 @@
                 <router-link :to="{name: 'groups'}" tag="a" class="item"><a>لینک گروه ها</a></router-link>
                 
 
-                <div class="ui dropdown link item">
-                    <div class="text">ناحیه کاربری</div>
+                <div class="ui pointing dropdown link item">
+                    <div class="text"><p>ناحیه کاربری</p></div>
                     <i class="dropdown icon"></i>
                     <div class="menu" v-if="isAuthenticated">
-                        <router-link :to="{name: 'profile'}" tag="a" class="item right">پروفایل</router-link>
+                        <router-link :to="{name: 'profile'}" tag="a" class="item">پروفایل</router-link>
                         <router-link :to="{name: 'logout'}" tag="a" class="item">خروج</router-link>
                     </div>
                     <div  class="menu" v-else>

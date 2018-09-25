@@ -2,7 +2,7 @@
 <div class="ui container" style="text-align: center; margin-bottom: 20px;">
     <div class="top_container ">
         <div class="col-sm-10" style="display:block; margin: auto;">
-                    <h1 style="text-align: center; margin:30px;">{{ campaign.title }} </h1>
+                    
             <div  v-if="loading" style="width: 100%; text-align: center;">
                 <img style="margin: auto;" src="/static/loading.gif" />
             </div>
@@ -32,20 +32,32 @@
                     </div>
                     <button class="btn btn-primary" @click="submit">ثبت تغییرات</button>
                 </div>
-                <div v-else>
-                    <p>{{ campaign.description }}</p>
-                    <p>شروع: {{ campaign.start_time }}</p>
-                    <p>پایان: {{ campaign.end_time }}</p>
+                <div  class="ui grid" v-else>
+                    <div class="ui stackable two column grid">  
+                         <div class="eight wide column">    
+                           <div style="text-align:center;width:80em;">
+                                <img class="ui medium rounded image" src="/images/wireframe/square-image.png" >
+                            </div>
+                            
+                        </div>
+                        <div class="six wide column" style="text-align:center;">
 
-                    <div v-if="isAuthenticated && !campaign.accessable">
-                        <button v-if="campaign.enrolled" @click="()=>{}">
-                            لغو درخواست عضویت
-                        </button>
-                        <button v-else @click="requestEnrollment">
-                            درخواست عضویت
-                        </button>
-                    </div>
-                    <div v-else>
+                            <h1>{{ campaign.title }} </h1>
+                            <p>{{ campaign.description }}</p>
+                            <p>شروع: {{ campaign.start_time }}</p>
+                            <p>پایان: {{ campaign.end_time }}</p>
+
+                            <div v-if="isAuthenticated && !campaign.accessable">
+                                <button v-if="campaign.enrolled" @click="()=>{}">
+                                    لغو درخواست عضویت
+                                </button>
+                                <button v-else @click="requestEnrollment">
+                                    درخواست عضویت
+                                </button>
+                            </div>
+
+                        </div>
+                    
                     </div>
 
                 </div>
