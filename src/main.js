@@ -5,6 +5,8 @@ import VueAxios from 'vue-axios'
 import jwt_decode from 'jwt-decode'
 import Vuex from 'vuex'
 import App from './App.vue'
+import Navbar from './components/Navbar.vue'
+import RightSidebar from './components/RightSidebar.vue'
 import { routes } from './routes';
 import { rejects } from 'assert';
 
@@ -147,4 +149,18 @@ new Vue({
   router,
   store,
   render: h => h(App)
+})
+
+new Vue({
+  el: '#navcomponent',
+  router,
+  store,
+  render: h => h(Navbar)
+})
+
+new Vue({
+  el: '#rightsidebarcomponent',
+  router,
+  store,
+  render: h => h(RightSidebar)
 })

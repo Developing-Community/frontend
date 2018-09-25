@@ -3,19 +3,22 @@
     <div class="ui inverted vertical masthead center aligned segment">
         <div class="ui text container">
             <h1 class="ui inverted header">
-              محلی برای یادگیری
+              جایی برای یادگیری
                 </h1>
             <h2>متناسب با نیازهای جامعه امروزی</h2>
             <div class="ui huge primary button" v-scroll-to="'#start'" style="margin-top:10px;">اطلاعات بیشتر <i class="right arrow icon"></i></div>
         </div>
     </div>
 
-  <div class="ui vertical stripe segment" id="start" style="margin-top: 0px; padding-top:70px;">
+  <div class="ui vertical stripe segment" id="start" style="margin-top: 0px; padding-top:9px;">
     <div class="ui middle aligned stackable grid container">
         <h4 class="ui horizontal header divider" style="text-align: center; width: 100%;">
-          <a style="font-size:140%;" href="#">یک کامیونیتی حرفه ای</a>
+          <a style="font-size:140%;" href="#start"  v-scroll-to="'#start'" >یک کامیونیتی حرفه ای</a>
         </h4>
       <div class="row">
+        <div class="six wide left floated column">
+          <img src="static/white-image.png" class="ui large bordered rounded image">
+        </div>
         <div class="ten wide column center aligned">
           <h3 class="ui header">هدف ما</h3>
           <p>با توجه به نقدهای وارد بر نظام آموزشی فعلی و کافی نبودن تحصیلات برای پیشرفت در دنیای امروز، ایده این کامیونیتی در ذهنمان شکل گرفت
@@ -23,9 +26,6 @@
                     از یک تحقیق گروهی در علوم انسانی و پایه گرفته تا
                         یک پروژه ی فیلم سازی یا برنامه نویسی
           </p> 
-        </div>
-        <div class="six wide right floated column">
-          <img src="static/white-image.png" class="ui large bordered rounded image">
         </div>
       </div>
 
@@ -54,7 +54,7 @@
       </div>
 
         <h4 class="ui horizontal header divider">
-          <a style="font-size:140%;" href="#">از ایده تا کار</a>
+          <a style="font-size:140%;" id="lastblock" href="#lastblock">از ایده تا کار</a>
         </h4>
 
       <div class="row">
@@ -70,8 +70,7 @@
         <div class="six wide column center aligned">
           <h3 class="ui header">نیروی کار یا هم تیمی نیاز دارید؟</h3>
           <p>
-                            برای انجام فعالیت های تیمی واقعی آماده شدید، 
-                        اگر توی کاری به هم تیمی هایی از حوزه
+             اگر توی کاری به هم تیمی هایی از حوزه
                             خودتون یا حوزه های دیگه نیاز داشتید از طریق 
                         این گروه سابقه گزارش ها و فعالیتشون رو ببینید و 
                         با شناخت نسبی که پیدا کردید بهشون پیشنهاد بدید
@@ -81,7 +80,7 @@
       </div>
 
         <h4 class="ui horizontal header divider">
-          <a style="font-size:140%;" href="#">برای پیوستن به ما آماده اید؟</a>
+          <router-link :to="{name: 'register'}" tag="a" style="font-size:140%;">برای پیوستن به ما آماده اید؟</router-link>
         </h4>
       <div class="row centered">
         <router-link :to="{name: 'register'}" tag="a" class="ui large button">ثبت نام و دریافت لینک گروه ها</router-link>

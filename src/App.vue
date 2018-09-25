@@ -21,14 +21,7 @@
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
-$(document).ready(function() {});
-
 export default {
-  data() {
-    return {
-      x: "x"
-    };
-  },
   components: {
     appHeader: Header,
     appFooter: Footer
@@ -252,6 +245,21 @@ export default {
 
 
 <style>
+
+
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url('/static/fonts/IRANSansWeb.woff2') format('woff2');
+}
+
+p, a, label, h1, h2, h3, h4, h5, h6{
+    font-family: "IRANSans";
+}
+p {
+    font-size: 90%;
+}
+
 #nav .ui.container .right.item {
   padding: 7px 15px;
 }
