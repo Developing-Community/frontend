@@ -1,14 +1,22 @@
 <template>
     <div class="ui right sidebar inverted vertical menu" id="right-menu">
-        <a class="item">
-            1
-        </a>
-        <a class="item">
-            2
-        </a>
-        <a class="item">
-            3
-        </a>
+        <div class="item">
+            <img src="/static/img/Logo.png" id="sidebarlogo"/>
+        </div>
+        <router-link :to="{name: 'home'}" tag="a" class="item"><a>خانه</a></router-link>
+        <router-link :to="{name: 'groups'}" tag="a" class="item"><a>لینک گروه ها</a></router-link>
+
+        <div class="item">
+            <div class="header"><p>ناحیه کاربری</p></div>
+            <div class="menu" v-if="isAuthenticated">
+                <router-link :to="{name: 'profile'}" tag="a" class="item">پروفایل</router-link>
+                <router-link :to="{name: 'logout'}" tag="a" class="item">خروج</router-link>
+            </div>
+            <div  class="menu" v-else>
+                <router-link :to="{name: 'register'}" tag="a" class="item">ثبت نام</router-link>
+                <router-link :to="{name: 'login'}" tag="a" class="item">ورود</router-link>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -41,5 +49,13 @@
     margin: auto;
     position: absolute;
     z-index: -100;
+}
+
+.item {
+    text-align: right;
+}
+#sidebarlogo {
+    width: 70px;
+    margin: 20px auto;
 }
 </style>

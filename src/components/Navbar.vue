@@ -8,17 +8,17 @@
             <router-view></router-view>
         </div>
         <div class="ui container contentnav">
-            <div class="ui icon input" :class="{faded: fadedSearch, notfaded: !fadedSearch}">
+            <div class="ui icon input desk-only" :class="{faded: fadedSearch, notfaded: !fadedSearch}">
                 <i class="search icon"></i>
                 <input type="text" placeholder="Search..."  @focus="fadedSearch = false" @blur="fadedSearch = true">
             </div>
-            <div class="right item " dir="rtl">
-                <a class="item mobile-button"> <i class="content icon"></i> </a>
-                <router-link :to="{name: 'home'}" tag="a" class="item"><a>خانه</a></router-link>
-                <router-link :to="{name: 'groups'}" tag="a" class="item"><a>لینک گروه ها</a></router-link>
+            <div class="right item" dir="rtl">
+                <a class="item mobile-button mob-only"> <i class="content icon"></i> </a>
+                <router-link :to="{name: 'home'}" tag="a" class="item desk-only"><a>خانه</a></router-link>
+                <router-link :to="{name: 'groups'}" tag="a" class="item desk-only"><a>لینک گروه ها</a></router-link>
                 
 
-                <div class="ui pointing dropdown link item">
+                <div class="ui pointing dropdown link item desk-only">
                     <div class="text"><p>ناحیه کاربری</p></div>
                     <i class="dropdown icon"></i>
                     <div class="menu" v-if="isAuthenticated">
@@ -336,6 +336,19 @@
 </script>
 
 <style scoped>
+/* Mobile */
+
+@media only screen and (min-width: 767px) {
+  [class*="mob-only"]{
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  [class*="desk-only"]{
+    display: none !important;
+  }
+}
 
 #toplogo {
     width: 70px;

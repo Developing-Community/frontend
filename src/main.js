@@ -10,9 +10,6 @@ import RightSidebar from './components/RightSidebar.vue'
 import { routes } from './routes';
 import { rejects } from 'assert';
 
-var VueScrollTo = require('vue-scrollto');
- 
-Vue.use(VueScrollTo)
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
@@ -143,6 +140,9 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
+
+//TODO: for semantic right sidebar to work perfectly, sidebar and navbar and pusher elements should be 
+// direct children of body. so I created three instances but this is not good. try to fix it
 
 new Vue({
   el: '#app',

@@ -1,19 +1,19 @@
 <template>
-<div>
+<div id="home">
     <div class="ui inverted vertical masthead center aligned segment">
         <div class="ui text container">
             <h1 class="ui inverted header">
               جایی برای یادگیری
                 </h1>
             <h2>متناسب با نیازهای جامعه امروزی</h2>
-            <div class="ui huge primary button" v-scroll-to="'#start'" style="margin-top:10px;">اطلاعات بیشتر <i class="right arrow icon"></i></div>
+            <div class="ui huge disabled button" style="margin-top:10px;"><i class="down arrow icon"></i>اطلاعات بیشتر</div>
         </div>
     </div>
 
   <div class="ui vertical stripe segment" id="start" style="margin-top: 0px; padding-top:9px;">
     <div class="ui middle aligned stackable grid container">
         <h4 class="ui horizontal header divider" style="text-align: center; width: 100%;">
-          <a style="font-size:140%;" href="#start"  v-scroll-to="'#start'" >یک کامیونیتی حرفه ای</a>
+          <a style="font-size:140%;" >یک کامیونیتی حرفه ای</a>
         </h4>
       <div class="row">
         <div class="six wide left floated column">
@@ -54,7 +54,7 @@
       </div>
 
         <h4 class="ui horizontal header divider">
-          <a style="font-size:140%;" id="lastblock" href="#lastblock">از ایده تا کار</a>
+          <a style="font-size:140%;">از ایده تا کار</a>
         </h4>
 
       <div class="row">
@@ -187,7 +187,8 @@
 </template>
 
 <script>
-export default {};
+export default {
+};
 </script>
 
 <style scoped>
