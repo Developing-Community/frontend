@@ -38,71 +38,80 @@
 </template>
 
 <script>
-    //TODO: register should accept 'next' from url parameters
-    import axios from 'axios';
+//TODO: register should accept 'next' from url parameters
+import axios from "axios";
 
-    export default {
-        data() {
-            return {
-                user: {
-                    username: '',
-                    email: '',
-                    password: '',
-                    // first_name: '',
-                    // last_name: ''
-                },
-                loading: false
-            };
-        },
-        methods: {
-            submit() {
-                this.loading = true;
-                var vinst = this;
-                axios.post(this.$store.state.hostUrl + '/api/user/register/', 
-                this.user, // the data to post
-                { headers: {
-                'Content-type': 'application/json',
-                }
-                }).then(response => {
-                            console.log("good");
-                            console.log(response.data);
-                            if(response.statusText == "Created"){
-                                alert("ثبت نام با موفقیت انجام شد");
-                            }
-                            vinst.$store.dispatch('obtainToken', {username: this.user.username, password: this.user.password})
-                            .then( () => {
-                                vinst.loading = false;
-                                this.$router.push({ name: 'groups' });
-                            });
-                        })
-                        .catch(err => {
-                            console.log("bad");
-                            console.log(err.response);
-                            if(err.response.data.username){
-                                alert("Username: " + err.response.data.username[0]);
-                            }
-                            if(err.response.data.password){
-                                alert("Password: " + err.response.data.password[0]);
-                            }
-                            if(err.response.data.email){
-                                alert("Email: " + err.response.data.email[0]);
-                            }
-                            // if(err.response.data.first_name){
-                            //     alert("First name: " + err.response.data.first_name[0]);
-                            // }
-                            // if(err.response.data.last_name){
-                            //     alert("Last name: " + err.response.data.last_name[0]);
-                            // }
-                            vinst.loading = false;
-                        });
+export default {
+  data() {
+    return {
+      user: {
+        username: "",
+        email: "",
+        password: ""
+        // first_name: '',
+        // last_name: ''
+      },
+      loading: false
+    };
+  },
+  methods: {
+    submit() {
+      this.loading = true;
+      var vinst = this;
+      axios
+        .post(
+          this.$store.state.hostUrl + "/api/user/register/",
+          this.user, // the data to post
+          {
+            headers: {
+              "Content-type": "application/json"
             }
-        }
+          }
+        )
+        .then(response => {
+          console.log("good");
+          console.log(response.data);
+          if (response.statusText == "Created") {
+            alert("ثبت نام با موفقیت انجام شد");
+          }
+          vinst.$store
+            .dispatch("obtainToken", {
+              username: this.user.username,
+              password: this.user.password
+            })
+            .then(() => {
+              vinst.loading = false;
+              this.$router.push({ name: "groups" });
+            });
+        })
+        .catch(err => {
+          console.log("bad");
+          console.log(err.response);
+          if (err.response.data.username) {
+            alert("Username: " + err.response.data.username[0]);
+          }
+          if (err.response.data.password) {
+            alert("Password: " + err.response.data.password[0]);
+          }
+          if (err.response.data.email) {
+            alert("Email: " + err.response.data.email[0]);
+          }
+          // if(err.response.data.first_name){
+          //     alert("First name: " + err.response.data.first_name[0]);
+          // }
+          // if(err.response.data.last_name){
+          //     alert("Last name: " + err.response.data.last_name[0]);
+          // }
+          vinst.loading = false;
+        });
     }
+  }
+};
 </script>
 
 <style scoped>
 input {
-    max-width: 500px;
-    margin: auto;
+  max-width: 500px;
+  margin: auto;
 }
 </style>
