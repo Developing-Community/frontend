@@ -45,7 +45,6 @@
                     .then((response) => {
                         alert('با موفقیت وارد شدید');
                         this.$store.commit('updateToken', response.data.token);
-                        this.$store.commit('setAuthentication', true);
                         if(this.$route.query.next){
                             this.$router.push(this.$route.query.next);
                         } else {

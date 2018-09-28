@@ -43,6 +43,7 @@ export const store = new Vuex.Store({
     },
     updateToken(state, newToken) {
       localStorage.setItem('t', newToken);
+      state.isAuthenticated = true;
       state.jwt = newToken;
     },
     removeToken(state) {
