@@ -3,6 +3,13 @@
         <div class="item">
             <img src="/static/img/Logo.png" id="sidebarlogo"/>
         </div>
+
+        <div class="item">
+            <div class="ui icon input desk-only" id="rightsearchbar">
+                <i class="search icon"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
         <router-link :to="{name: 'home'}" tag="a" class="item"><a>خانه</a></router-link>
         <router-link :to="{name: 'groups'}" tag="a" class="item"><a>لینک گروه ها</a></router-link>
 
@@ -39,7 +46,6 @@
 </script>
 
 <style scoped>
-
 .contentnav{
     position: relative;
     z-index: 100;

@@ -8,7 +8,7 @@
             <router-view></router-view>
         </div>
         <div class="ui container contentnav">
-            <div class="ui icon input desk-only" :class="{faded: fadedSearch, notfaded: !fadedSearch}">
+            <div class="ui icon input desk-only" id="topsearchbar" :class="{faded: fadedSearch, notfaded: !fadedSearch}">
                 <i class="search icon"></i>
                 <input type="text" placeholder="Search..."  @focus="fadedSearch = false" @blur="fadedSearch = true">
             </div>
@@ -173,6 +173,7 @@
                 var vinst = this;
                 $(document).ready(function() {
                     if ($(window).scrollTop() <= vinst.navStartPosition) {
+                        $("#topsearchbar").animate({marginTop: "9px", height: "40px"}, "fast");
                         animationEnabled = false;
                         if (to.name == "home") {
                             $("#toplogo").css("opacity", "0");
@@ -199,6 +200,7 @@
                         x = 1;
                     }
                     else {
+                        $("#topsearchbar").animate({marginTop: "12px", height: "35px"}, "fast");
                         $("#toplogo").animate({opacity: 0.65});
                         if (to.name == "home") {
                             $(".menu.secondary")
@@ -291,6 +293,7 @@
                 $(window).scroll(function () {
                     if ($(window).scrollTop() <= vinst.navStartPosition) {
                         if(x == 0){
+                            $("#topsearchbar").animate({marginTop: "9px", height: "40px"}, "fast");
                             animationEnabled = false;
                             if (vinst.$route.name == "home") {
                                 $("#toplogo").css("opacity", "0");
@@ -306,7 +309,8 @@
                         }
                     }
                     else if (x == 1) {
-                    $("#toplogo").animate({opacity: 0.65});
+                        $("#topsearchbar").animate({marginTop: "12px", height: "35px"}, "fast");
+                        $("#toplogo").animate({opacity: 0.65});
                         if (vinst.$route.name == "home") {
                             $(".menu.secondary")
                             .css("opacity", "0")
