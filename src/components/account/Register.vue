@@ -85,23 +85,19 @@ export default {
             });
         })
         .catch(err => {
-          console.log("bad");
-          console.log(err.response);
-          if (err.response.data.username) {
-            alert("Username: " + err.response.data.username[0]);
+          if(error.response){
+              if (err.response.data.username) {
+                alert("Username: " + err.response.data.username[0]);
+              }
+              if (err.response.data.password) {
+                alert("Password: " + err.response.data.password[0]);
+              }
+              if (err.response.data.email) {
+                alert("Email: " + err.response.data.email[0]);
+              }
+          } else {
+              alert('خطا در ارتباط با سرور')
           }
-          if (err.response.data.password) {
-            alert("Password: " + err.response.data.password[0]);
-          }
-          if (err.response.data.email) {
-            alert("Email: " + err.response.data.email[0]);
-          }
-          // if(err.response.data.first_name){
-          //     alert("First name: " + err.response.data.first_name[0]);
-          // }
-          // if(err.response.data.last_name){
-          //     alert("Last name: " + err.response.data.last_name[0]);
-          // }
           vinst.loading = false;
         });
     }

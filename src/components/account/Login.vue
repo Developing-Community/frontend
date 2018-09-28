@@ -53,7 +53,11 @@
                         vinst.loading = false;
                     })
                     .catch((error) => {
-                        alert('نام کاربری یا رمز عبور اشتباه است');
+                        if(error.response){
+                            alert('نام کاربری یا رمز عبور اشتباه است');
+                        } else {
+                            alert('خطا در ارتباط با سرور')
+                        }
                         console.log(error);
                         this.$store.commit('removeToken');
                         vinst.loading = false;
