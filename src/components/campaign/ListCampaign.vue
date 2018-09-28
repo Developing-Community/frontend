@@ -8,8 +8,8 @@
             <div style="text-align: center;" v-else>
                 <hr/>
                 
-                <div class="ui stackable four column grid">
-                    <div class="column" v-for="campaign in campaigns" style="max-width: 400px;">
+                <div class="ui stackable three column grid">
+                    <div class="column" v-for="campaign in campaigns" style="max-width: 400px; min-width:300px">
                         
                         <div >
                             <div class="panel-body quote">
@@ -17,7 +17,9 @@
                                 <router-link
                                     tag="h2"
                                     :to="{name: 'detailcampaign', params: { id: campaign.id }}"
-                                    style="cursor: pointer">{{ campaign.title }}</router-link>
+                                    style="cursor: pointer">
+                                    <img :src="campaign.image" style="height: 200px; width: 200px;" />
+                                    {{ campaign.title }}</router-link>
                                 <p>{{ campaign.description }}</p>
                                 <p>شروع: {{ campaign.start_time }}</p>
                                 <p>پایان: {{ campaign.end_time }}</p>
@@ -52,6 +54,12 @@
                 axios.get(this.$store.state.hostUrl + '/api/campaigns/study/').then(response => {
                     console.log(response.data);
                     vinst.campaigns = response.data.results;
+
+                    vinst.campaigns.forEach(function(entry) {              
+                        if(entry.image == null){
+                            entry.image = "/static/white-image.png";
+                        }
+                    });
                     vinst.loading = false;
                 }).catch(err => {
                     vinst.loading = false;
@@ -59,6 +67,7 @@
             },
         },
         created(){
+            console.log("sag");
             this.getCampaigns();
         }
     }

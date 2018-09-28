@@ -94,10 +94,10 @@ export default {
         .then(response => {
           console.log(response.data);
           vinst.profile = response.data;
-          if(vinst.profile.profile_image == null){
-            vinst.profile.profile_image = "/static/white-image.png";
-          } else {
+          if(vinst.profile.profile_image){
             vinst.profile.profile_image = $store.state.hostUrl + vinst.profile.profile_image;
+          } else {
+            vinst.profile.profile_image = "/static/white-image.png";
           }
           vinst.loading = false;
         })

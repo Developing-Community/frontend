@@ -36,7 +36,7 @@
                     <div class="ui stackable two column grid">  
                          <div class="eight wide column">    
                            <div style="text-align:center;width:80em;">
-                                <img class="ui medium rounded image" src="/images/wireframe/square-image.png" >
+                                <img class="ui medium rounded image" :src="campaign.image" >
                             </div>
                             
                         </div>
@@ -102,6 +102,12 @@
                     }).then(response => {
                         console.log(response.data);
                         vinst.campaign = response.data;
+
+                        if(vinst.campaign.image){
+                            vinst.campaign.image = vinst.campaign.image;
+                        } else {
+                            vinst.campaign.image = "/static/white-image.png";
+                        }
                         vinst.loading = false;
                     }).catch(err => {
                         if(err.response.status == 404){

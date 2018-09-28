@@ -4,7 +4,7 @@ export const protectedUrlMixin = {
     beforeRouteEnter(to, from, next){
         console.log(to);
         const token = localStorage.getItem('t');
-        const loginRoute = { name: 'login' }
+        const loginRoute = { name: 'login' , query: {next: to.path}}
         if(!token){
             next(loginRoute);
         }

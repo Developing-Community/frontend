@@ -4,9 +4,6 @@
                 <img src="/static/img/Logo.png" id="toplogo"/>
         </div>
 
-        <div style="display:none">
-            <router-view></router-view>
-        </div>
         <div class="ui container contentnav">
             <div class="ui icon input desk-only" id="topsearchbar" :class="{faded: fadedSearch, notfaded: !fadedSearch}">
                 <i class="search icon"></i>

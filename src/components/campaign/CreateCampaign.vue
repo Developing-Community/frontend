@@ -31,6 +31,7 @@
 <script>
     //TODO: register should accept 'next' from url parameters
     import axios from 'axios';
+    import { protectedUrlMixin } from "../../protectedUrlMixin";
 
     export default {
         data() {
@@ -44,6 +45,7 @@
                 loading: false
             };
         },
+        mixins: [protectedUrlMixin],
         methods: {
             submit() {
                 this.loading = true;
