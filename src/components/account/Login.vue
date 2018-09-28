@@ -1,5 +1,5 @@
 <template>
-    <div class="ui form segment" style="direction:rtl;">
+    <div class="ui form" style="direction:rtl;">
 
         <h1 style="text-align: center; margin:30px;">ورود</h1>
                 <div v-if="loading" style="width: 100%; text-align: center;">
