@@ -84,10 +84,6 @@
 </template>
 
 <script>
-    $(document).ready(function(){
-
-        $('.menu .item').tab();
-    })
     import axios from 'axios';
     export default {
         data() {
@@ -201,6 +197,9 @@
         },
         created(){
             this.getCampaign();
+        },
+        updated(){
+            $('.menu .item').tab();
         }
     }
 </script>

@@ -67,7 +67,6 @@
             },
         },
         created(){
-            console.log("sag");
             this.getCampaigns();
         }
     }
