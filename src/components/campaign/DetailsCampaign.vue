@@ -66,7 +66,7 @@
                     
                     </div>
 
-                    <div class="ui top attached tabular menu">
+                    <div class="ui top attached tabular menu" dir="rtl">
                         <a class="item active" data-tab="first">پیام ها</a>
                         <a class="item" data-tab="second">پرسش و پاسخ</a>
                         <a class="item" data-tab="third">وظایف</a>
