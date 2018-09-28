@@ -32,14 +32,20 @@
                     </div>
                     <button class="btn btn-primary" @click="submit">ثبت تغییرات</button>
                 </div>
-                <div  class="ui grid" v-else>
-                    <div class="ui stackable two column grid">  
-                         <div class="eight wide column">    
-                           <div style="text-align:center;width:80em;">
-                                <img class="ui medium rounded image" :src="campaign.image" >
+
+
+                <div  class="" v-else>
+
+
+                    <div class="ui stackable two column grid segment">  
+
+                        <div class="eight wide column ui segment">    
+                           <div class="" style="text-align:center;width:80em;">
+                                <img class="ui medium rounded image segment" :src="campaign.image" >
                             </div>
-                            
                         </div>
+
+
                         <div class="six wide column" style="text-align:center;">
 
                             <h1>{{ campaign.title }} </h1>
@@ -60,6 +66,16 @@
                     
                     </div>
 
+                    <div class="ui top attached tabular menu">
+                        <a class="item active" data-tab="first">پیام ها</a>
+                        <a class="item" data-tab="second">پرسش و پاسخ</a>
+                        <a class="item" data-tab="third">وظایف</a>
+
+                    </div>
+
+                    <div class="ui bottom attached tab segment active " data-tab="first">پیام های شما</div>
+                    <div class="ui bottom attached tab segment " data-tab="second">پرسش های شما </div>
+                    <div class="ui bottom attached tab segment" data-tab="third">وظایف شما</div>
                 </div>
             </div>
         </div>
@@ -68,6 +84,10 @@
 </template>
 
 <script>
+    $(document).ready(function(){
+
+        $('.menu .item').tab();
+    })
     import axios from 'axios';
     export default {
         data() {
