@@ -6,14 +6,14 @@
                     <img style="margin: auto;" src="/static/loading.gif" />
                 </div>
                 <div class="" v-else>
-                    <div class="field ui centered grid" >
-                        <div class="five wide field">
+                    <div class="field" >
+                        <div class="">
                             <label>نام کاربری</label>
                             <input class="form-control" type="text" v-model="user.username">
                          </div>
                     </div>
-                    <div class="field ui centered grid">
-                        <div class="five wide field">
+                    <div class="field">
+                        <div class="">
                             <label>کلمه عبور</label>
                             <input class="form-control" @keyup.enter="submit" type="password" v-model="user.password">
                         </div>

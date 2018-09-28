@@ -5,20 +5,20 @@
                 <img style="margin: auto;" src="/static/loading.gif" />
             </div>
             <div v-else>
-                <div class="field ui centered grid">
-                    <div class="nine wide field">
+                <div class="field">
+                    <div class="">
                         <label>نام کاربری</label>
                         <input class="form-control" type="text" v-model="user.username">
                     </div>
                 </div>  
-                <div class="field ui centered grid">
-                    <div class="nine wide field">
+                <div class="field ">
+                    <div class="">
                         <label>ایمیل</label>
                         <input class="form-control" type="text" v-model="user.email">
                     </div>
                 </div>
-                <div class="field ui centered grid">
-                    <div class="nine wide field">
+                <div class="field ">
+                    <div class="">
                         <label>کلمه عبور</label>
                         <input class="form-control" type="password" v-model="user.password">
                     </div>
