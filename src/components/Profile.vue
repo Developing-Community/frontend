@@ -1,5 +1,4 @@
 <template>
-<div id="container" class="ui container" style="text-align: center; margin-bottom: 20px;">
     <div class="top_container ">
         <div class="col-sm-10" style="display:block; margin: auto;">
             <div  v-if="loading" style="width: 100%; text-align: center;">
@@ -35,7 +34,6 @@
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>

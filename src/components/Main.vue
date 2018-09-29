@@ -1,9 +1,11 @@
 <template>
 
 
-      <div class="ui pusher">
-            <router-view></router-view>
-            <app-footer></app-footer>
+
+<div id="container" class="ui container" style="text-align: center; margin-bottom: 20px;">
+            <transition name="slide">
+                <router-view></router-view>
+            </transition>
       </div>
 
 
@@ -12,11 +14,7 @@
 
 
 <script>
-import Footer from "./components/Footer.vue";
 export default {
-  components: {
-    appFooter: Footer
-  },
 };
 </script>
 

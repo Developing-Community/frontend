@@ -1,6 +1,4 @@
 <template>
-<div id="container" class="ui container">
-    <div class="top_container ">
         <div class="content">
         <div v-if="isAuthenticated">
         <p>باتشکر از عضویت شما</p>
@@ -20,8 +18,6 @@
         </h3>
         </div>
         </div>
-    </div>
-</div>
 </template>
 
 <script>

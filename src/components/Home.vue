@@ -6,18 +6,18 @@
               جایی برای یادگیری
                 </h1>
             <h2>متناسب با نیازهای جامعه امروزی</h2>
-            <div class="ui huge disabled button" style="margin-top:10px;"><i class="down arrow icon"></i>اطلاعات بیشتر</div>
+            <div  class="ui huge primary button" style="margin-top:10px;" v-scroll-to="'#start'"><i class="down arrow icon"></i>اطلاعات بیشتر</div>
         </div>
     </div>
 
   <div class="ui vertical stripe segment" id="start" style="margin-top: 0px; padding-top:9px;">
     <div class="ui middle aligned stackable grid container">
         <h4 class="ui horizontal header divider" style="text-align: center; width: 100%;">
-          <a style="font-size:140%;" >یک کامیونیتی حرفه ای</a>
+          <a style="font-size:140%;" v-scroll-to="'#start'" href="#">یک کامیونیتی حرفه ای</a>
         </h4>
       <div class="row">
         <div class="six wide left floated column">
-          <img src="static/white-image.png" class="ui large bordered rounded image">
+          <img src="static/community.svg" class="ui large rounded image" style="border-radius: 15px;">
         </div>
         <div class="ten wide column center aligned">
           <h3 class="ui header">هدف ما</h3>
@@ -54,7 +54,7 @@
       </div>
 
         <h4 class="ui horizontal header divider">
-          <a style="font-size:140%;">از ایده تا کار</a>
+          <a style="font-size:140%;" id="lastblock" v-scroll-to="'#lastblock'" href="#">از ایده تا کار</a>
         </h4>
 
       <div class="row">
@@ -65,7 +65,7 @@
           </p> 
         </div>
         <div class="four wide floated column">
-          <img src="static/white-image.png" class="ui large bordered rounded image">
+          <img src="static/connection.jpg" class="ui large rounded image">
         </div>
         <div class="six wide column center aligned">
           <h3 class="ui header">نیروی کار یا هم تیمی نیاز دارید؟</h3>
@@ -91,99 +91,6 @@
   </div>
 
 </div>
-    <!-- <div class="ui container" style="text-align: right">
-
-        <div class="ui stackable two column grid"> 
-            <div class=" column">
-                <div style="text-align:center;">
-                    <h3>هدف ما</h3>
-                </div>
-                <hr>
-                    <div>
-                        <p>
-                            هدف ما از این کامیونیتی به وجود آوردن یک محیط ساختار
-                            یافته هست که بتونید در این محیط یاد بگیرید
-                            و در فعالیت ها و تیم های مختلف
-                شرکت کنید و با آدمای مختلف در حوزه های مختلف آشنا بشید
-                و اگر سوال یا راهنمایی هم خواستید ازشون کمک
-                بگیرید. منظور از فعالیت، هر فعالیتی تو هر حوزه ای هست. 
-                از یه تحقیق گروهی در علوم انسانی و پایه گرفته تا
-                    یک پروژه ی فیلم سازی یا برنامه نویسی
-                        </p>
-                    </div>
-                
-            </div>
-
-            <div class="column">
-                <div style="text-align:center;">
-                    <h3>
-                        در حال یادگیری هستید؟
-                    </h3>
-                </div>
-                <hr>
-                <div>
-                    <p>
-                        بعد از وارد شدن به گروه حوزه هایی رو برای
-                            یادگیری خودتون انتخاب می کنید و هر هفته
-                            از فعالیتی که برای یادگیری اون
-        حوزه انجام دادید به بقیه اعضای تیم گزارش می دید.
-            گزارش جزئیات خاصی نیاز نداره و میتونه در حد ۴-۵ جمله باشه. مثلا
-        این که یه آموزش آنلاین درباره اون حوزه شروع 
-        کردید یا یک کتاب دربارش خوندید. البته گزارش دقیق تر برای انتقال
-        تجربه یادگیریتون به دیگران بهتر هست
-                    </p>
-                </div>
-
-                
-            </div>
-        </div>
-
-        <div class="ui stackable two column grid">
-            <div class="column">
-                <div style="text-align:center;">
-                    <h3>
-                        تمایل دارید به یادگیری دیگران کمک کنید؟
-                    </h3>
-                </div>
-
-                <hr>
-                <div>
-                    <p>
-                      اطراف ما پر از انسان های مستعدی هست که نیاز به
-                            مسیر یادگیری دارند. با تکیه بر دانش و
-                            مهارت خود به این افراد در کامیونیتی کمک کنید و همچنین نیروهای
-                            حرفه ای مورد نیاز خود را با صرف زمان اندک پرورش دهید.
-                    </p>
-                </div>
-
-
-                
-            </div>
-            <div class="column">
-                <div style="text-align:center;">
-                    <h3>
-                        دنبال هم تیمی هستید؟
-                    </h3>
-                </div>
-                <hr>
-                <div>
-                    <p>
-                        وقتی
-                            برای انجام فعالیت های تیمی واقعی آماده شدید، 
-                        اگر توی کاری به هم تیمی هایی از حوزه
-                            خودتون یا حوزه های دیگه نیاز داشتید از طریق 
-                        این گروه سابقه گزارش ها و فعالیتشون رو ببینید و 
-                        با شناخت نسبی که پیدا کردید بهشون پیشنهاد بدید
-                            و نهایتا در قالب تیم با هم کار کنید. سعی کنید
-                            گزارش های جذاب بنویسید و فعالیت کنید تا دیگران
-                            هم شما رو به عنوان هم تیمی انتخاب کنند
-                    </p>
-                </div>
-                
-            </div>
-        </div>
-
-    </div> -->
 </template>
 
 <script>

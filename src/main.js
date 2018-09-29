@@ -9,7 +9,9 @@ import Navbar from './components/Navbar.vue'
 import RightSidebar from './components/RightSidebar.vue'
 import { routes } from './routes';
 import { rejects } from 'assert';
-
+var VueScrollTo = require('vue-scrollto');
+ 
+Vue.use(VueScrollTo);
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
