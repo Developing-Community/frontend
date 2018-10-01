@@ -31,7 +31,7 @@ export default {
     src: url('/static/fonts/IRANSansWeb.woff2') format('woff2');
 }
 
-p, a, label, h1, h2, h3, h4, h5, h6{
+p, a, label, h1, h2, h3, h4, h5, h6, button, div, body{
     font-family: "IRANSans";
 }
 p {

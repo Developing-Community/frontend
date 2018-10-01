@@ -384,4 +384,7 @@
     opacity: 0.85;
 }
 
+#topsearchbar input {
+    border-radius: 1000px;
+}
 </style>
