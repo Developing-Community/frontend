@@ -31,6 +31,96 @@
                 <div v-else>
                     <p>{{ profile.bio }}</p>
                 </div>
+                <hr />
+                <div>
+                  <p>مهارت ها</p>
+                  <select class="ui search dropdown">
+                    <option value="">State</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                  </select>
+                  <button>ثبت</button>
+                  <div style="background-color:blue; color:white; width: 50px;">
+                    <div>مهارت </div>
+                    <div>x</div>
+                  </div>
+                  <div style="background-color:blue; color:white; width: 50px;">
+                    <div>مهارت </div>
+                    <div>x</div>
+                  </div>
+                  <div style="background-color:blue; color:white; width: 50px;">
+                    <div>مهارت </div>
+                    <div>x</div>
+                  </div>
+                  <div style="background-color:blue; color:white; width: 50px;">
+                    <div>مهارت </div>
+                    <div>x</div>
+                  </div>
+                  <div style="background-color:blue; color:white; width: 50px;">
+                    <div>مهارت </div>
+                    <div>x</div>
+                  </div>
+                  <div style="background-color:blue; color:white; width: 50px;">
+                    <div>مهارت </div>
+                    <div>x</div>
+                  </div>
+                </div>
+                <hr />
+                <div>
+                  <p>اطلاعات تماس</p>
+                  <div>
+                    <select class="ui search dropdown">
+                      <option value="">State</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                    </select>
+                    <p>09XXXXXXX</p>
+                    <div style="color:red; font-size: 200%">-</div>
+                  </div>
+                  <div>
+                    <select class="ui search dropdown">
+                      <option value="">State</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                    </select>
+                    <p>09XXXXXXX</p>
+                    <div style="color:red; font-size: 200%">-</div>
+                  </div>
+                  <div>
+                    <select class="ui search dropdown">
+                      <option value="">State</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                    </select>
+                    <p>09XXXXXXX</p>
+                    <div style="color:red; font-size: 200%">-</div>
+                  </div>
+                  <div>
+                    <select class="ui search dropdown">
+                      <option value="">State</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                    </select>
+                    <p>09XXXXXXX</p>
+                    <div style="color:red; font-size: 200%">-</div>
+                    <button></button>
+                  </div>
+                </div>
             </div>
         </div>
     </div>
