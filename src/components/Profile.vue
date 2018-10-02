@@ -5,34 +5,64 @@
                 <h1 style="text-align: center; margin:30px;">لطفا صبر کنید...</h1>
                 <img style="margin: auto;" src="/static/loading.gif" />
             </div>
-            <div v-else>
-                <img :src="profile.profile_image" style="height: 300px; width: 300px;" />
-                <h1 style="text-align: center; margin:30px;">{{ profile.first_name }} {{ profile.last_name }}</h1>
-                <button class="btn btn-primary" @click="edit = !edit">ویرایش</button>
-                <div v-if="edit">
-                    <div class="form-group">
-                        <label>نام</label>
-                        <input class="form-control" type="text" v-model="profile.first_name">
-                    </div>
-                    <div class="form-group">
-                        <label>نام خانوادگی</label>
-                        <input class="form-control" type="text" v-model="profile.last_name">
-                    </div>
-                    <div class="form-group">
-                        <label>بیوگرافی</label>
-                        <textarea
-                            rows="5"
-                            class="form-control"
-                            v-model="profile.bio"></textarea>
-                    </div>
-                    <input type="file" id="file" ref="profile_image" v-on:change="handleFileUpload()"/>
-                    <button class="btn btn-primary" @click="submit">ثبت تغییرات</button>
+            <div class="ui container segment" v-else>
+
+              <div class="ui grid" style="margin-bottom:30px;">
+                <div class="six wide column" >
+                  <img class="ui small circular image segment" src="/static/image.png"  />
                 </div>
-                <div v-else>
-                    <p>{{ profile.bio }}</p>
+
+                <div class="eight wide column">
+                  
+
+
+                  <div v-if="edit">
+                      <div class="form-group">
+                          <label>نام</label>
+                          <input class="form-control" type="text" v-model="profile.first_name">
+                      </div>
+                      <div class="form-group">
+                          <label>نام خانوادگی</label>
+                          <input class="form-control" type="text" v-model="profile.last_name">
+                      </div>
+                      <div class="form-group">
+                          <label>بیوگرافی</label>
+                          <textarea
+                              rows="5"
+                              class="form-control"
+                              v-model="profile.bio"></textarea>
+                      </div>
+                      <input type="file" id="file" ref="profile_image" v-on:change="handleFileUpload()"/>
+                      <button class="btn btn-primary" @click="submit">ثبت تغییرات</button>
+                      <button class="ui primary button" @click="edit = !edit">ویرایش</button>
+                      
+                  </div>
+                  
+  
+                  <div class="" v-else style="text-align:right;">
+                    <div style="padding-right:8px; padding-top:30px;">
+                      <h4>علی مهدی یار</h4>
+                      <p style="padding-bottom:8.5px; ">برنامه نویس</p>
+                      <p style="padding-bottom:5px;">شمنسیتکشمسنیکنکم نشکمسین 
+                        شکمسینشکمسنی شنسی 
+                        نشس یکمنشسکیم نشگسی نمشسگکین
+                      </p>
+                    </div>
+                    <button class="ui small primary button" @click="edit = !edit">ویرایش</button>
+                  </div>
+
                 </div>
+
+              </div>
+
+
+
                 <hr />
-                <div>
+
+
+
+
+                <div style="margin-bottom:20px; ">
                   <p>مهارت ها</p>
                   <select class="ui search dropdown">
                     <option value="">State</option>
@@ -42,44 +72,39 @@
                     <option value="AR">Arkansas</option>
                     <option value="CA">California</option>
                   </select>
-                  <button>ثبت</button>
-                  <div style="background-color:blue; color:white; width: 50px;">
-                    <div>مهارت </div>
-                    <div>x</div>
-                  </div>
-                  <div style="background-color:blue; color:white; width: 50px;">
-                    <div>مهارت </div>
-                    <div>x</div>
-                  </div>
-                  <div style="background-color:blue; color:white; width: 50px;">
-                    <div>مهارت </div>
-                    <div>x</div>
-                  </div>
-                  <div style="background-color:blue; color:white; width: 50px;">
-                    <div>مهارت </div>
-                    <div>x</div>
-                  </div>
-                  <div style="background-color:blue; color:white; width: 50px;">
-                    <div>مهارت </div>
-                    <div>x</div>
-                  </div>
-                  <div style="background-color:blue; color:white; width: 50px;">
-                    <div>مهارت </div>
-                    <div>x</div>
-                  </div>
+                  <button class="ui small primary button">ثبت</button>
+
+
+                  <div class="ui stackable three column grid" style="margin-top:10px; padding-left:10px;">
+                    <div class="" style="display: flex; background-color:blue; color:white; margin:10px;">
+                      <div>Django</div>
+                      <div style="margin-left: 10px">x</div>
+                    </div> 
+                  
+                    <div class="" style="display: flex; background-color:blue; color:white; margin:10px;">
+                      <div>Django Rest Framework</div>
+                      <div style="margin-left: 10px">x</div>
+                    </div> 
+                  
+                    <div class="" style="display: flex; background-color:blue; color:white; margin:10px;">
+                      <div>Vue</div>
+                      <div style="margin-left: 10px">x</div>
+                    </div> 
+                  
+                    <div class="" style="display: flex; background-color:blue; color:white; margin:10px;">
+                      <div>برنامه نویسی مقدماتی</div>
+                      <div style="margin-left: 10px">x</div>
+                    </div> 
+                  </div> 
                 </div>
+
+
+
                 <hr />
                 <div>
                   <p>اطلاعات تماس</p>
-                  <div>
-                    <select class="ui search dropdown">
-                      <option value="">State</option>
-                      <option value="AL">Alabama</option>
-                      <option value="AK">Alaska</option>
-                      <option value="AZ">Arizona</option>
-                      <option value="AR">Arkansas</option>
-                      <option value="CA">California</option>
-                    </select>
+                  <div v-for="i in [1,2,3]">
+                    <p>موبایل</p>
                     <p>09XXXXXXX</p>
                     <div style="color:red; font-size: 200%">-</div>
                   </div>
@@ -92,33 +117,8 @@
                       <option value="AR">Arkansas</option>
                       <option value="CA">California</option>
                     </select>
-                    <p>09XXXXXXX</p>
-                    <div style="color:red; font-size: 200%">-</div>
-                  </div>
-                  <div>
-                    <select class="ui search dropdown">
-                      <option value="">State</option>
-                      <option value="AL">Alabama</option>
-                      <option value="AK">Alaska</option>
-                      <option value="AZ">Arizona</option>
-                      <option value="AR">Arkansas</option>
-                      <option value="CA">California</option>
-                    </select>
-                    <p>09XXXXXXX</p>
-                    <div style="color:red; font-size: 200%">-</div>
-                  </div>
-                  <div>
-                    <select class="ui search dropdown">
-                      <option value="">State</option>
-                      <option value="AL">Alabama</option>
-                      <option value="AK">Alaska</option>
-                      <option value="AZ">Arizona</option>
-                      <option value="AR">Arkansas</option>
-                      <option value="CA">California</option>
-                    </select>
-                    <p>09XXXXXXX</p>
-                    <div style="color:red; font-size: 200%">-</div>
-                    <button></button>
+                    <input type="text" />
+                    <button>افزودن</button>
                   </div>
                 </div>
             </div>
