@@ -6,6 +6,7 @@ import Home from './components/Home.vue';
 import Main from './components/Main.vue';
 import Profile from './components/Profile.vue';
 import TelegramGroups from './components/TelegramGroups.vue';
+import TelegramVerification from './components/TelegramVerification.vue';
 
 import Campaign from './components/campaign/Campaign.vue';
 import ListCampaign from './components/campaign/ListCampaign.vue';
@@ -75,6 +76,11 @@ export const routes = [
                 path: '/groups',
                 component: TelegramGroups,
                 name: 'groups'
+            },
+            {
+                path: '/verify-token',
+                component: TelegramVerification,
+                name: 'verify-token'
             },
         ]
     },

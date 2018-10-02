@@ -9,26 +9,25 @@ import Navbar from './components/Navbar.vue'
 import RightSidebar from './components/RightSidebar.vue'
 import { routes } from './routes';
 import { rejects } from 'assert';
+
+//configurations
+import { host_url } from './config';
+
 var VueScrollTo = require('vue-scrollto');
- 
 Vue.use(VueScrollTo);
 Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
 
-// const host = window.location.href.split("/")[0] + "//" + window.location.href.split("/")[2]
-const host = "https://dev-community.ir"
-// const host = "http://127.0.0.1:8000"
-
 
 export const store = new Vuex.Store({
   state: {
-    hostUrl: host,
+    hostUrl: host_url,
     jwt: localStorage.getItem('t'),
     endpoints: {
-      obtainJWT: host + '/api/user/auth/obtain_token/',
-      refreshJWT: host + '/api/user/auth/refresh_token/',
-      verifyJWT: host + '/api/user/auth/verify_token/'
+      obtainJWT: host_url + '/api/user/auth/obtain_token/',
+      refreshJWT: host_url + '/api/user/auth/refresh_token/',
+      verifyJWT: host_url + '/api/user/auth/verify_token/'
     },
     err: null,
     isAuthenticated: false,

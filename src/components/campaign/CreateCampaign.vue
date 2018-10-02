@@ -57,25 +57,25 @@
                 'Authorization' : 'JWT ' + localStorage.getItem('t')
                 }
                 }).then(response => {
-                            console.log("good");
-                            console.log(response.data);
-                            if(response.statusText == "Created"){
-                                alert("با موفقیت ثبت شد");
-                            }
-                            this.$router.push({ name: 'listcampaign' });
-                            vinst.loading = false;
-                        })
-                        .catch(err => {
-                            console.log("bad");
-                            console.log(err.response);
-                            if(err.response.data.title){
-                                alert("Name: " + err.response.data.title[0]);
-                            }
-                            if(err.response.data.description){
-                                alert("Description: " + err.response.data.description[0]);
-                            }
-                            vinst.loading = false;
-                        });
+                    console.log("good");
+                    console.log(response.data);
+                    if(response.statusText == "Created"){
+                        alert("با موفقیت ثبت شد");
+                    }
+                    this.$router.push({ name: 'listcampaign' });
+                    vinst.loading = false;
+                })
+                .catch(err => {
+                    console.log("bad");
+                    console.log(err.response);
+                    if(err.response.data.title){
+                        alert("Name: " + err.response.data.title[0]);
+                    }
+                    if(err.response.data.description){
+                        alert("Description: " + err.response.data.description[0]);
+                    }
+                    vinst.loading = false;
+                });
             }
         }
     }

@@ -10,11 +10,9 @@
         <div v-else>
         <p>فقط اعضا قادر به مشاهده لینک گروه ها هستند.</p>
         <h3>
-            <!-- <a href="{% url 'users:register' %}?next={% url 'telegramgroups' %}">عضویت</a> -->
             <router-link :to="{name: 'register'}" tag="a"><a>عضویت</a></router-link>
             <span style="font-size:80%;padding:1px;">-</span>
             <router-link :to="{name: 'login'}" tag="a"><a>ورود</a></router-link>
-            <!-- <a href="{% url 'users:login' %}?next={% url 'telegramgroups' %}">ورود</a> -->
         </h3>
         </div>
         </div>

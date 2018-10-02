@@ -26,12 +26,47 @@ export default {
 
 
 
-@font-face {
+
+
+/* @font-face {
     font-family: 'IRANSans';
     src: url('/static/fonts/IRANSansWeb.woff2') format('woff2');
+} */
+
+@font-face {
+	font-family:'IRANSans';
+	src: url('/static/fonts/');
+	src: url('/static/fonts/iransans/IRANSansWeb.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('/static/fonts/iransans/IRANSansWeb.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('/static/fonts/iransans/IRANSansWeb.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('/static/fonts/iransans/IRANSansWeb.ttf') format('truetype');
+		 font-style: normal;
+		 font-weight: normal;
 }
 
-p, a, label, h1, h2, h3, h4, h5, h6, button, div, body{
+@font-face {
+	font-family:'IRANSans-light';
+	src: url('/static/fonts/');
+	src: url('/static/fonts/iransans/IRANSansWeb_Light.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('/static/fonts/iransans/IRANSansWeb_Light.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('/static/fonts/iransans/IRANSansWeb_Light.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('/static/fonts/iransans/IRANSansWeb_Light.ttf') format('truetype');
+		 font-style: normal;
+		 font-weight: normal;
+}
+
+@font-face {
+	font-family:'IRANSans-medium';
+	src: url('/static/fonts/');
+	src: url('/static/fonts/iransans/IRANSansWeb_Medium.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('/static/fonts/iransans/IRANSansWeb_Medium.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('/static/fonts/iransans/IRANSansWeb_Medium.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('/static/fonts/iransans/IRANSansWeb_Medium.ttf') format('truetype');
+		 font-style: normal;
+		 font-weight: normal;
+}
+
+p, a, label, h1, h2, h3, h4, h5, h6, body{
     font-family: "IRANSans";
 }
 p {
@@ -70,17 +105,17 @@ p {
 }
 
 .slide-enter-active {
-        animation: slide-in .3s ease-out forwards;
-    }
+    animation: slide-in .3s ease-out forwards;
+}
 
-    @keyframes slide-in {
-        from {
-            transform: translateY(20px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
+@keyframes slide-in {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
     }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 </style>

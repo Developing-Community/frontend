@@ -130,6 +130,7 @@ h5 {
   margin-top: 3em;
   margin-bottom: 0em;
   font-size: 4em;
+  font-family: IRANSans;
   font-weight: normal;
 }
 .masthead h2 {
@@ -173,9 +174,13 @@ h5 {
   display: none;
 }
 
-  .masthead h1.ui.header {
-    margin-top: 250px;
-  }
+.masthead h1.ui.header {
+  margin-top: 250px;
+}
+
+.masthead .button {
+  font-family: IRANSans-light;
+}
 
 @media only screen and (max-width: 700px) {
   .ui.fixed.menu {
