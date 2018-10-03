@@ -31,7 +31,7 @@
                     <label>نام خانوادگی</label>
                     <input class="form-control" @keyup.enter="submit" type="text" v-model="user.last_name">
                 </div> -->
-                <button class="ui inverted primary button" style="margin: 10px;" @click="$router.push({name: 'login'})">ورود</button>
+                <button class="ui inverted primary button" style="margin: 10px;" @click="$router.push({name: 'login', query: $route.query})">ورود</button>
                 <button class="ui inverted primary button" @click="submit">ثبت نام</button>
             </div>
     </div>
@@ -81,7 +81,11 @@ export default {
             })
             .then(() => {
               vinst.loading = false;
-              this.$router.push({ name: "groups" });
+              if (this.$route.query.next) {
+                this.$router.push(this.$route.query.next);
+              } else {
+                this.$router.push({ name: "home" });
+              }
             });
         })
         .catch(err => {

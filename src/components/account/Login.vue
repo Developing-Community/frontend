@@ -18,7 +18,7 @@
                 </div>
             </div>
             <button class="ui inverted primary button" style="margin: 10px;" @click="submit">ورود</button>
-            <button class="ui inverted primary button" style="margin: 10px;" @click="$router.push({name: 'register'})">ثبت نام</button>
+            <button class="ui inverted primary button" style="margin: 10px;" @click="$router.push({name: 'register', query: $route.query})">ثبت نام</button>
         </div>
     </div>
 </template>
