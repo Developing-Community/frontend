@@ -34,6 +34,13 @@
                 return this.$store.getters.isAuthenticated;
             }
         },
+        watch:{
+            $route (to, from){
+                $("#right-menu")
+                    .first()
+                    .sidebar("hide", { transition: "push" });
+            }
+        },
         created(){
             $(document).ready(function() {
                 $("a.item").click(function(){
