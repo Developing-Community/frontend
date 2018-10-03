@@ -89,7 +89,7 @@ export default {
             });
         })
         .catch(err => {
-          if(error.response){
+          if(err.response){
               if (err.response.data.username) {
                 alert("Username: " + err.response.data.username[0]);
               }
