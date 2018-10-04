@@ -64,6 +64,7 @@
 
                 <div style="margin-bottom:20px; ">
                   <p>مهارت ها</p>
+
                   <select class="ui search dropdown">
                     <option value="">State</option>
                     <option value="AL">Alabama</option>
@@ -72,30 +73,35 @@
                     <option value="AR">Arkansas</option>
                     <option value="CA">California</option>
                   </select>
+
                   <button class="ui small primary button">ثبت</button>
 
 
-                  <div class="ui grid" style="margin-top:10px; padding-left:10px;">
-                    <div class="" style="display: flex; background-color:blue; color:white; margin:10px;">
-                      <div>Django</div>
-                      <div style="margin-left: 10px">x</div>
-                    </div> 
+                  <div class="" style="margin-top:10px; padding-left:10px; ">
+                    <div class="ui blue label" style="">
+                      
+                      فارسی
+                      <i class="delete icon"></i>
+                    </div>
+                       <div class="ui blue label">
+                      
+                      Html CSs
+                      <i class="delete icon"></i>
+                    </div>
+                    <div class="ui blue label">
+                      
+                      Semantic
+                      <i class="delete icon"></i>
+                    </div>
                   
-                    <div class="" style="display: flex; background-color:blue; color:white; margin:10px;">
-                      <div>Django Rest Framework</div>
-                      <div style="margin-left: 10px">x</div>
-                    </div> 
-                  
-                    <div class="" style="display: flex; background-color:blue; color:white; margin:10px;">
-                      <div>Vue</div>
-                      <div style="margin-left: 10px">x</div>
-                    </div> 
-                  
-                    <div class="" style="display: flex; background-color:blue; color:white; margin:10px;">
-                      <div>برنامه نویسی مقدماتی</div>
-                      <div style="margin-left: 10px">x</div>
-                    </div> 
+                    <div class="ui blue label">
+                      
+                      Django
+                      <i class="delete icon"></i>
+                    </div>
                   </div> 
+
+
                 </div>
 
 
@@ -103,42 +109,48 @@
                 <hr />
                 <div>
                   <p>اطلاعات تماس</p>
-                  <div class="ui grid segment">
-                    <div  style="display: flex;  margin:10px;" >
+                  <div class="" style="direction: rtl; margin-bottom:2px; margin-top: 10px; ">
 
-                      <p>موبایل</p>
-                      <p>09XXXXXXX</p>
-                      <div style="color:red; font-size: 200%">-</div>
+                    <div class="ui label" style="" >
 
+                      موبایل
+                      09XXXXXXX
+                    
+                      <i class="delete icon"></i>
                     </div>
-                    <div  style="display: flex; margin:10px;" >
+                   
+                  </div>
 
-                      <p>موبایل</p>
-                      <p>09XXXXXXX</p>
-                      <div style="color:red; font-size: 200%">-</div>
+                  <div class="ui left labeled input">
+                    <div class="ui search selection dropdown">
+                      <input type="hidden" name="device">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Select Country</div>
 
-                    </div>
-                    <div  style="display: flex; margin:10px;" >
+                      <div class="menu">
+                        <div class="item" data-value="af"><i class="af flag"></i>Afghanistan</div>
+                        <div class="item" data-value="ax"><i class="ax flag"></i>Aland Islands</div>
+                        <div class="item" data-value="al"><i class="al flag"></i>Albania</div>
+                        <div class="item" data-value="dz"><i class="dz flag"></i>Algeria</div>
+                        <div class="item" data-value="as"><i class="as flag"></i>American Samoa</div>
+                        <div class="item" data-value="ad"><i class="ad flag"></i>Andorra</div>
+                        <div class="item" data-value="ao"><i class="ao flag"></i>Angola</div>
 
-                      <p>موبایل</p>
-                      <p>09XXXXXXX</p>
-                      <div style="color:red; font-size: 200%">-</div>
+
+
+
+                      </div>
+                      
+                      
+
+
 
                     </div>
 
                   </div>
-                  <div>
-                    <select class="ui search dropdown">
-                      <option value="">State</option>
-                      <option value="AL">Alabama</option>
-                      <option value="AK">Alaska</option>
-                      <option value="AZ">Arizona</option>
-                      <option value="AR">Arkansas</option>
-                      <option value="CA">California</option>
-                    </select>
-                    <input type="text" />
-                    <button>افزودن</button>
-                  </div>
+                  
+
+
                 </div>
             </div>
         </div>
@@ -248,6 +260,9 @@ export default {
   },
   created() {
     this.getProfile();
+  },
+  updated(){
+    $(".dropdown").dropdown();
   }
 };
 </script>
