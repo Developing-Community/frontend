@@ -75,7 +75,7 @@
                   <button class="ui small primary button">ثبت</button>
 
 
-                  <div class="ui stackable three column grid" style="margin-top:10px; padding-left:10px;">
+                  <div class="ui grid" style="margin-top:10px; padding-left:10px;">
                     <div class="" style="display: flex; background-color:blue; color:white; margin:10px;">
                       <div>Django</div>
                       <div style="margin-left: 10px">x</div>
@@ -103,10 +103,29 @@
                 <hr />
                 <div>
                   <p>اطلاعات تماس</p>
-                  <div v-for="i in [1,2,3]">
-                    <p>موبایل</p>
-                    <p>09XXXXXXX</p>
-                    <div style="color:red; font-size: 200%">-</div>
+                  <div class="ui grid segment">
+                    <div  style="display: flex;  margin:10px;" >
+
+                      <p>موبایل</p>
+                      <p>09XXXXXXX</p>
+                      <div style="color:red; font-size: 200%">-</div>
+
+                    </div>
+                    <div  style="display: flex; margin:10px;" >
+
+                      <p>موبایل</p>
+                      <p>09XXXXXXX</p>
+                      <div style="color:red; font-size: 200%">-</div>
+
+                    </div>
+                    <div  style="display: flex; margin:10px;" >
+
+                      <p>موبایل</p>
+                      <p>09XXXXXXX</p>
+                      <div style="color:red; font-size: 200%">-</div>
+
+                    </div>
+
                   </div>
                   <div>
                     <select class="ui search dropdown">
