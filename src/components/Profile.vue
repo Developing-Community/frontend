@@ -121,25 +121,17 @@
                    
                   </div>
 
-                  <div class="ui left labeled input">
-                    <div class="ui search selection dropdown">
-                      <input type="hidden" name="device">
-                      <i class="dropdown icon"></i>
-                      <div class="default text">Select Country</div>
 
-                      <div class="menu">
-                        <div class="item" data-value="af"><i class="af flag"></i>Afghanistan</div>
-                        <div class="item" data-value="ax"><i class="ax flag"></i>Aland Islands</div>
-                        <div class="item" data-value="al"><i class="al flag"></i>Albania</div>
-                        <div class="item" data-value="dz"><i class="dz flag"></i>Algeria</div>
-                        <div class="item" data-value="as"><i class="as flag"></i>American Samoa</div>
-                        <div class="item" data-value="ad"><i class="ad flag"></i>Andorra</div>
-                        <div class="item" data-value="ao"><i class="ao flag"></i>Angola</div>
+                  <select class="ui search dropdown">
+                    <option value="">State</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                  </select>
 
-
-
-
-                      </div>
+                  <button class="ui small primary button">ثبت</button>
                       
                       
 
