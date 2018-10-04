@@ -1,5 +1,7 @@
 <template>
     <div class="ui form" style="direction:rtl;">
+
+        <h3><a class="link" style="margin: 10px;" @click="$router.push({name: 'register', query: $route.query})">ثبت نام -></a></h3>
         <h1 style="text-align: center; margin:30px;">ورود</h1>
         <div v-if="loading" style="width: 100%; text-align: center;">
             <img style="margin: auto;" src="/static/loading.gif" />
@@ -18,7 +20,6 @@
                 </div>
             </div>
             <button class="ui inverted primary button" style="margin: 10px;" @click="submit">ورود</button>
-            <button class="ui inverted primary button" style="margin: 10px;" @click="$router.push({name: 'register', query: $route.query})">ثبت نام</button>
         </div>
     </div>
 </template>
@@ -79,6 +80,9 @@ export default {
 </script>
 
 <style scoped>
+.link:hover {
+  cursor: pointer
+}
 input {
   max-width: 500px;
   margin: auto;

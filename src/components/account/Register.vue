@@ -1,5 +1,6 @@
 <template>
     <div class="ui form" style="direction:rtl;">
+            <h3><a class="link" style="margin: 10px;" @click="$router.push({name: 'login', query: $route.query})"><- ورود</a></h3>
             <h1 style="text-align: center; margin:30px;">ثبت نام</h1>
             <div  v-if="loading" style="width: 100%; text-align: center;">
                 <img style="margin: auto;" src="/static/loading.gif" />
@@ -31,7 +32,6 @@
                     <label>نام خانوادگی</label>
                     <input class="form-control" @keyup.enter="submit" type="text" v-model="user.last_name">
                 </div> -->
-                <button class="ui inverted primary button" style="margin: 10px;" @click="$router.push({name: 'login', query: $route.query})">ورود</button>
                 <button class="ui inverted primary button" @click="submit">ثبت نام</button>
             </div>
     </div>
@@ -113,6 +113,9 @@ export default {
 </script>
 
 <style scoped>
+.link:hover {
+  cursor: pointer
+}
 input {
   max-width: 500px;
   margin: auto;
