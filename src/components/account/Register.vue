@@ -74,22 +74,25 @@ export default {
           if (response.statusText == "Created") {
             alert("ثبت نام با موفقیت انجام شد");
           }
-          vinst.$store
-            .dispatch("obtainToken", {
+
+          axios
+            .post(this.$store.state.endpoints.obtainJWT, {
               username: this.user.username,
               password: this.user.password
             })
-            .then(() => {
-              vinst.loading = false;
-              if (this.$route.query.next) {
-                this.$router.push(this.$route.query.next);
+            .then(response => {
+              vinst.$store.commit("updateToken", response.data.token);
+              if (vinst.$route.query.next) {
+                vinst.$router.push(this.$route.query.next);
               } else {
-                this.$router.push({ name: "home" });
+                vinst.$router.push({ name: "home" });
               }
-            });
+              vinst.loading = false;
+            })
         })
         .catch(err => {
           if(err.response){
+              console.log(err)
               if (err.response.data.username) {
                 alert("Username: " + err.response.data.username[0]);
               }
