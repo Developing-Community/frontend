@@ -12,7 +12,7 @@
                         <input class="form-control" @keyup.enter="submit" type="text" v-model="user.email">
                     </div>
                 </div>
-                <button class="ui inverted primary button" @click="submit">ثبت نام</button>
+                <button class="ui inverted primary button" @click="submit">تایید</button>
             </div>
     </div>
 </template>
