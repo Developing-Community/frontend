@@ -59,7 +59,7 @@
                 }).then(response => {
                     console.log("good");
                     console.log(response.data);
-                    if(response.statusText == "Created"){
+                    if(response.status == 201){
                         alert("با موفقیت ثبت شد");
                     }
                     this.$router.push({ name: 'listcampaign' });

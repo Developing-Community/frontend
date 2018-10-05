@@ -237,8 +237,7 @@ export default {
           console.log("good");
           console.log(response);
           console.log(response.data);
-          console.log(response.statusText);
-          if (response.statusText == "OK") {
+          if (response.status == 200) {
             alert("تغییرات با موفقیت ثبت شد");
           }
           vinst.loading = false;

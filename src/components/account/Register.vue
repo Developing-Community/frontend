@@ -21,7 +21,7 @@
                 <div class="field ">
                     <div class="">
                         <label>کلمه عبور</label>
-                        <input class="form-control" type="password" v-model="user.password">
+                        <input class="form-control" @keyup.enter="submit" type="password" v-model="user.password">
                     </div>
                 </div>
                 <!-- <div class="form-group">
@@ -38,7 +38,6 @@
 </template>
 
 <script>
-//TODO: register should accept 'next' from url parameters
 import axios from "axios";
 
 export default {
@@ -71,7 +70,7 @@ export default {
         .then(response => {
           console.log("good");
           console.log(response.data);
-          if (response.statusText == "Created") {
+          if (response.status == 201) {
             alert("ثبت نام با موفقیت انجام شد");
           }
 

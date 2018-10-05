@@ -19,6 +19,8 @@
                     <input class="form-control" @keyup.enter="submit" type="password" v-model="user.password">
                 </div>
             </div>
+
+            <h4><a class="link" style="margin: 10px;" @click="$router.push({name: 'reset-password', query: $route.query})">کلمه عبورتان را فراموش کردید؟</a></h4>
             <button class="ui inverted primary button" style="margin: 10px;" @click="submit">ورود</button>
         </div>
     </div>

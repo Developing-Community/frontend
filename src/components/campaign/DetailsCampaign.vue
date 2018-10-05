@@ -161,7 +161,7 @@
                     console.log(response)
                     console.log(response.data);
                     console.log(response.statusText)
-                    if(response.statusText == "OK"){
+                    if(response.status == 200){
                         alert("تغییرات با موفقیت ثبت شد");
                     }
                     vinst.loading = false;
@@ -183,7 +183,7 @@
                 }).then(response => {
                     console.log("good");
                     console.log(response.data);
-                    if(response.statusText == "Created"){
+                    if(response.status == 201){
                         this.campaign.enrolled = true;
                     }
                     vinst.loading = false;

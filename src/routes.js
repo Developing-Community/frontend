@@ -1,6 +1,7 @@
 import Register from './components/account/Register.vue';
 import Login from './components/account/Login.vue';
 import Logout from './components/account/Logout.vue';
+import ResetPassword from './components/account/ResetPassword.vue';
 import Account from './components/account/Account.vue';
 import Home from './components/Home.vue';
 import Main from './components/Main.vue';
@@ -32,6 +33,11 @@ export const routes = [
                         path: 'login',
                         component: Login,
                         name: 'login'
+                    },
+                    {
+                        path: 'reset-password',
+                        component: ResetPassword,
+                        name: 'reset-password'
                     },
                     {
                         path: 'register',
