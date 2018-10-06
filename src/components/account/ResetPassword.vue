@@ -6,13 +6,24 @@
                 <img style="margin: auto;" src="/static/loading.gif" />
             </div>
             <div v-else>
-                <div class="field ">
-                    <div class="">
-                        <label>ایمیل</label>
-                        <input class="form-control" @keyup.enter="submit" type="text" v-model="user.email">
-                    </div>
-                </div>
-                <button class="ui inverted primary button" @click="submit">تایید</button>
+                <template v-if="$route.query.token">
+                  <div class="field ">
+                      <div class="">
+                          <label>کلمه عبور جدید</label>
+                          <input class="form-control" @keyup.enter="submitConfirm" type="text" v-model="rpdata.password">
+                      </div>
+                  </div>
+                  <button class="ui inverted primary button" @click="submitConfirm">تایید</button>
+                </template>
+                <template v-else>
+                  <div class="field ">
+                      <div class="">
+                          <label>ایمیل</label>
+                          <input class="form-control" @keyup.enter="submitRequest" type="text" v-model="user.email">
+                      </div>
+                  </div>
+                  <button class="ui inverted primary button" @click="submitRequest">تایید</button>
+                </template>
             </div>
     </div>
 </template>
@@ -26,11 +37,15 @@ export default {
       user: {
         email: "",
       },
+      rpdata: {
+        password: "",
+        token: ""
+      },
       loading: false
     };
   },
   methods: {
-    submit() {
+    submitRequest() {
       this.loading = true;
       var vinst = this;
       axios
@@ -64,6 +79,49 @@ export default {
           }
           vinst.loading = false;
         });
+    },
+    submitConfirm(){
+      this.loading = true;
+      var vinst=this;
+      this.rpdata.token = this.$route.query.token
+      axios
+        .post(
+          this.$store.state.hostUrl + "/api/reset-password/confirm/",
+          this.rpdata, // the data to post
+          {
+            headers: {
+              "Content-type": "application/json"
+            }
+          }
+        )
+        .then(response => {
+          console.log("good");
+          if (response.status == 200) {
+            alert("کلمه عبور با موفقیت تغییر یافت");
+          }
+          vinst.loading = false;
+          this.$router.push({ name: "login" });
+        })
+        .catch(err => {
+          if(err.response){
+              console.log(err)
+              if (err.response.data.token) {
+                alert("Token: " + err.response.data.token[0]);
+              } else if (err.response.data.then) {
+                alert("Password: " + err.response.data.password[0]);
+              } else if (err.response.data.status){
+                alert("کد نامعتبر");
+              } else {
+                alert("خطا. لطفا دقایقی دیگر مجددا سعی کنید")
+              }
+          } else {
+              alert('خطا در ارتباط با سرور')
+          }
+          vinst.loading = false;
+        });
+    },
+    created(){
+      this.rpdata.token = this.$route.query.token
     }
   }
 };

@@ -9,7 +9,7 @@
 
               <div class="ui grid" style="margin-bottom:30px;">
                 <div class="six wide column" >
-                  <img class="ui small circular image segment" src="/static/image.png"  />
+                  <img class="ui small circular image segment" src="/static/white-image.png"  />
                 </div>
 
                 <div class="eight wide column">
