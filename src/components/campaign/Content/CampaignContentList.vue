@@ -1,30 +1,23 @@
 <template>
     <div>
-            <h1 style="margin:30px; text-align: center;">کمپین های مطالعاتی</h1>
-
             <div  v-if="loading" style="width: 100%; text-align: center;">
                 <img style="margin: auto;" src="/static/loading.gif" />
             </div>
-            <div style="text-align: center;" v-else>
-                <hr/>
-                
-                <div class="ui stackable three column grid">
-                    <div class="column" v-for="campaign in campaigns" style="max-width: 400px; min-width:300px">
+            <div v-else>
+                <div class="ui list">
+                    <div class="item" v-for="content in contents">
                         
-                        <div >
-                            <div class="panel-body quote">
-
-                                <router-link
+                            <div class="header">{{ content.title }}</div>
+                            
+                                <!-- <router-link
                                     tag="h2"
                                     :to="{name: 'detailcampaign', params: { id: campaign.id }}"
-                                    style="cursor: pointer">
-                                    <img :src="campaign.image" style="height: 200px; width: 200px;" />
-                                    {{ campaign.title }}</router-link>
-                                <p>{{ campaign.description }}</p>
-                                <p>شروع: {{ campaign.start_time }}</p>
-                                <p>پایان: {{ campaign.end_time }}</p>
+                                    style="cursor: pointer"> -->
+                                    
+                                    {{ content.content }}
+                                    <!-- </router-link>campaigncampaigncampaigncampaigncampaigncampaigncampaign -->
+
                                 
-                            </div>
 
                         </div>
 
@@ -41,21 +34,28 @@
     export default {
         data() {
             return {
-                campaigns: [
+                contents: [
 
                 ],
                 loading: false
             };
         },
         methods: {
-            getCampaigns(){
+            getContents(){
                 this.loading = true;
                 var vinst = this;
-                axios.get(this.$store.state.hostUrl + '/api/campaigns/study/').then(response => {
+                var contentUrl;
+                contentUrl = this.$store.state.hostUrl + '/api/campaigns/' + this.$route.params.campaign_id;
+                if(this.$route.name == 'campaign-questions'){
+                    contentUrl += '/questions/'
+                } else if (this.$route.name == 'campaign-plans'){
+                    contentUrl += '/plans/'
+                }
+                axios.get(contentUrl).then(response => {
                     console.log(response.data);
-                    vinst.campaigns = response.data.results;
+                    vinst.contents = response.data.results;
 
-                    vinst.campaigns.forEach(function(entry) {              
+                    vinst.contents.forEach(function(entry) {              
                         if(entry.image == null){
                             entry.image = "/static/white-image.png";
                         }
@@ -67,7 +67,7 @@
             },
         },
         created(){
-            this.getCampaigns();
+            this.getContents();
         }
     }
 </script>

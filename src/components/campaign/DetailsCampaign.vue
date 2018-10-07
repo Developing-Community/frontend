@@ -73,9 +73,9 @@
 
                     </div>
 
-                    <div class="ui bottom attached tab segment active " data-tab="first">پیام های شما</div>
-                    <div class="ui bottom attached tab segment " data-tab="second">پرسش های شما </div>
-                    <div class="ui bottom attached tab segment" data-tab="third">وظایف شما</div>
+                    <div class="ui bottom attached tab segment active ">
+                        <router-view></router-view>
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,7 +111,7 @@
                 if(this.$store.state.isAuthenticated){
                     this.loading = true;
                     var vinst = this;
-                    axios.get(this.$store.state.hostUrl + '/api/campaigns/' + this.$route.params.id + "/",
+                    axios.get(this.$store.state.hostUrl + '/api/campaigns/' + this.$route.params.campaign_id + "/",
                     { headers: {
                     'Authorization' : 'JWT ' + localStorage.getItem('t')
                     }
@@ -134,7 +134,7 @@
                 } else {
                     this.loading = true;
                     var vinst = this;
-                    axios.get(this.$store.state.hostUrl + '/api/campaigns/' + this.$route.params.id + "/",
+                    axios.get(this.$store.state.hostUrl + '/api/campaigns/' + this.$route.params.campaign_id + "/",
                     ).then(response => {
                         console.log(response.data);
                         vinst.campaign = response.data;

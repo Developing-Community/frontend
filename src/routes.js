@@ -13,6 +13,8 @@ import Campaign from './components/campaign/Campaign.vue';
 import ListCampaign from './components/campaign/ListCampaign.vue';
 import DetailsCampaign from './components/campaign/DetailsCampaign.vue';
 import CreateCampaign from './components/campaign/CreateCampaign.vue';
+import CampaignContent from './components/campaign/Content/CampaignContent.vue';
+import CampaignContentList from './components/campaign/Content/CampaignContentList.vue';
 export const routes = [
     {
         path: '/',
@@ -67,9 +69,33 @@ export const routes = [
                         name: 'createcampaign'
                     },
                     {
-                        path: ':id',
+                        path: ':campaign_id',
                         component: DetailsCampaign,
-                        name: 'detailcampaign'
+                        name: 'detailcampaign',
+                        children: [
+                            {
+                                path: 'questions',
+                                component: CampaignContent,
+                                children: [
+                                    {
+                                        path: '',
+                                        component: CampaignContentList,
+                                        name: 'campaign-questions',
+                                    },
+                                ]
+                            },
+                            {
+                                path: 'plans',
+                                component: CampaignContent,
+                                children: [
+                                    {
+                                        path: '',
+                                        component: CampaignContentList,
+                                        name: 'campaign-plans',
+                                    },
+                                ]
+                            },
+                        ]
                     },
                 ]
             },
