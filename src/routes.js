@@ -9,11 +9,9 @@ import Profile from './components/Profile.vue';
 import TelegramGroups from './components/TelegramGroups.vue';
 import TelegramVerification from './components/TelegramVerification.vue';
 
-import Campaign from './components/campaign/Campaign.vue';
 import ListCampaign from './components/campaign/ListCampaign.vue';
 import DetailsCampaign from './components/campaign/DetailsCampaign.vue';
 import CreateCampaign from './components/campaign/CreateCampaign.vue';
-import CampaignContent from './components/campaign/Content/CampaignContent.vue';
 import CampaignContentList from './components/campaign/Content/CampaignContentList.vue';
 export const routes = [
     {
@@ -55,47 +53,28 @@ export const routes = [
             },
             {
                 path: '/campaigns',
-                component: Campaign,
-                // name: 'campaigns',
+                component: ListCampaign,
+                name: 'listcampaign'
+            },
+            {
+                path: '/campaigns/create',
+                component: CreateCampaign,
+                name: 'createcampaign'
+            },
+            {
+                path: '/campaigns/:campaign_id',
+                component: DetailsCampaign,
+                name: 'detailcampaign',
                 children: [
                     {
-                        path: '',
-                        component: ListCampaign,
-                        name: 'listcampaign'
+                        path: 'questions',
+                        component: CampaignContentList,
+                        name: 'campaign-questions',
                     },
                     {
-                        path: 'create',
-                        component: CreateCampaign,
-                        name: 'createcampaign'
-                    },
-                    {
-                        path: ':campaign_id',
-                        component: DetailsCampaign,
-                        name: 'detailcampaign',
-                        children: [
-                            {
-                                path: 'questions',
-                                component: CampaignContent,
-                                children: [
-                                    {
-                                        path: '',
-                                        component: CampaignContentList,
-                                        name: 'campaign-questions',
-                                    },
-                                ]
-                            },
-                            {
-                                path: 'plans',
-                                component: CampaignContent,
-                                children: [
-                                    {
-                                        path: '',
-                                        component: CampaignContentList,
-                                        name: 'campaign-plans',
-                                    },
-                                ]
-                            },
-                        ]
+                        path: 'plans',
+                        component: CampaignContentList,
+                        name: 'campaign-plans',
                     },
                 ]
             },
