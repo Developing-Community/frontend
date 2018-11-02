@@ -10,7 +10,7 @@
                   <div class="field ">
                       <div class="">
                           <label>کلمه عبور جدید</label>
-                          <input class="form-control" @keyup.enter="submitConfirm" type="text" v-model="rpdata.password">
+                          <input class="form-control" @keyup.enter="submitConfirm" type="password" v-model="rpdata.password">
                       </div>
                   </div>
                   <button class="ui inverted primary button" @click="submitConfirm">تایید</button>
