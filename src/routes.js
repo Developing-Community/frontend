@@ -52,29 +52,29 @@ export const routes = [
                 ]
             },
             {
-                path: '/campaigns',
+                path: '/study',
                 component: ListCampaign,
-                name: 'listcampaign'
+                name: 'list-study'
             },
             {
-                path: '/campaigns/create',
+                path: '/study/create',
                 component: CreateCampaign,
-                name: 'createcampaign'
+                name: 'create-study'
             },
             {
-                path: '/campaigns/:campaign_id',
+                path: '/study/:campaign_id',
                 component: DetailsCampaign,
-                name: 'detailcampaign',
+                name: 'detail-study',
                 children: [
                     {
                         path: 'questions',
                         component: CampaignContentList,
-                        name: 'campaign-questions',
+                        name: 'study-questions',
                     },
                     {
                         path: 'plans',
                         component: CampaignContentList,
-                        name: 'campaign-plans',
+                        name: 'study-plans',
                     },
                 ]
             },

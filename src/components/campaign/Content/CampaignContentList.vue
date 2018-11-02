@@ -11,11 +11,11 @@
                             
                                 <!-- <router-link
                                     tag="h2"
-                                    :to="{name: 'detailcampaign', params: { id: campaign.id }}"
+                                    :to="{name: 'detailstudy', params: { id: campaign.id }}"
                                     style="cursor: pointer"> -->
                                     
                                     {{ content.content }}
-                                    <!-- </router-link>campaigncampaigncampaigncampaigncampaigncampaigncampaign -->
+                                    <!-- </router-link> -->
 
                                 
 
@@ -46,9 +46,9 @@
                 var vinst = this;
                 var contentUrl;
                 contentUrl = this.$store.state.hostUrl + '/api/campaigns/' + this.$route.params.campaign_id;
-                if(this.$route.name == 'campaign-questions'){
+                if(this.$route.name == 'study-questions'){
                     contentUrl += '/questions/'
-                } else if (this.$route.name == 'campaign-plans'){
+                } else if (this.$route.name == 'study-plans'){
                     contentUrl += '/plans/'
                 }
                 axios.get(contentUrl).then(response => {

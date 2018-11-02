@@ -62,7 +62,7 @@
                     if(response.status == 201){
                         alert("با موفقیت ثبت شد");
                     }
-                    this.$router.push({ name: 'listcampaign' });
+                    this.$router.push({ name: 'list-study' });
                     vinst.loading = false;
                 })
                 .catch(err => {
