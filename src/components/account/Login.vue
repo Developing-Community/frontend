@@ -10,7 +10,7 @@
             <div class="field" >
                 <div class="">
                     <input class="form-control" type="text" v-model="user.username" placeholder="نام کاربری">
-                    </div>
+                </div>
             </div>
             <div class="field">
                 <div class="">
