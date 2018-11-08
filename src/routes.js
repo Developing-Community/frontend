@@ -4,7 +4,7 @@ import Logout from './components/account/Logout.vue';
 import ResetPassword from './components/account/ResetPassword.vue';
 import Account from './components/account/Account.vue';
 import Home from './components/Home.vue';
-import Main from './components/Main.vue';
+import MainTemplate from './components/MainTemplate.vue';
 import Profile from './components/Profile.vue';
 import TelegramGroups from './components/TelegramGroups.vue';
 import TelegramVerification from './components/TelegramVerification.vue';
@@ -20,7 +20,7 @@ export const routes = [
         name: 'home'
     },
     {
-        component: Main,
+        component: MainTemplate,
         name: 'main',
         path: '/',
         children: [
@@ -62,23 +62,6 @@ export const routes = [
                 name: 'create-study'
             },
             {
-                path: '/study/:campaign_id',
-                component: DetailsCampaign,
-                name: 'detail-study',
-                children: [
-                    {
-                        path: 'questions',
-                        component: CampaignContentList,
-                        name: 'study-questions',
-                    },
-                    {
-                        path: 'plans',
-                        component: CampaignContentList,
-                        name: 'study-plans',
-                    },
-                ]
-            },
-            {
                 path: '/profile',
                 component: Profile,
                 name: 'profile'
@@ -92,6 +75,22 @@ export const routes = [
                 path: '/verify-token',
                 component: TelegramVerification,
                 name: 'verify-token'
+            },
+        ]
+    },
+    {
+        path: '/study/:campaign_id',
+        component: DetailsCampaign,
+        children: [
+            {
+                path: '',
+                component: CampaignContentList,
+                name: 'study-partitions',
+            },
+            {
+                path: 'questions',
+                component: CampaignContentList,
+                name: 'study-questions',
             },
         ]
     },

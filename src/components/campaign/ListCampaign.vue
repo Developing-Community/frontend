@@ -1,34 +1,35 @@
 <template>
     <div>
-            <h1 style="margin:30px; text-align: center;">کمپین های مطالعاتی</h1>
+            <h1 style="margin:30px; text-align: center;">دوره های مطالعاتی</h1>
 
             <div  v-if="loading" style="width: 100%; text-align: center;">
                 <img style="margin: auto;" src="/static/loading.gif" />
             </div>
             <div style="text-align: center;" v-else>
-                <hr/>
-                
-                <div class="ui stackable three column grid">
-                    <div class="column" v-for="campaign in campaigns" style="max-width: 400px; min-width:300px">
-                        
-                        <div >
-                            <div class="panel-body quote">
-
-                                <router-link
-                                    tag="h2"
-                                    :to="{name: 'detailcampaign', params: { id: campaign.id }}"
-                                    style="cursor: pointer">
-                                    <img :src="campaign.image" style="height: 200px; width: 200px;" />
-                                    {{ campaign.title }}</router-link>
-                                <p>{{ campaign.description }}</p>
-                                <p>شروع: {{ campaign.start_time }}</p>
-                                <p>پایان: {{ campaign.end_time }}</p>
-                                
+                <div class="ui special stackable four column cards">
+                    <div class="card" v-for="campaign in campaigns">
+                        <div class="blurring dimmable image">
+                        <div class="ui dimmer">
+                            <div class="content">
+                            <div class="center">
+                                <router-link tag="div" :to="getDetailRoute(campaign)" class="ui inverted button">اطلاعات بیشتر</router-link>
                             </div>
-
+                            </div>
                         </div>
-
-
+                        <img :src="campaign.image">
+                        </div>
+                        <div class="content">
+                        <a class="header">{{ campaign.title }}</a>
+                        <div class="meta">
+                            <span class="description">{{ campaign.description }}</span>
+                        </div>
+                        </div>
+                        <div class="extra content">
+                        <a>
+                            <i class="users icon"></i>
+                            {{ campaign.creator }}
+                        </a>
+                        </div>
                     </div>
                 </div>
 
@@ -48,6 +49,13 @@
             };
         },
         methods: {
+            getDetailRoute(campaign){
+                if(this.$route.name == "list-study")
+                    return {name: 'study-partitions', params: { campaign_id: campaign.id }};
+                else if(this.$route.name == "list-campaign")
+                    return {name: 'detail-campaign', params: { campaign_id: campaign.id }};
+                return {};
+            },
             getCampaigns(){
                 this.loading = true;
                 var vinst = this;
@@ -68,6 +76,11 @@
         },
         created(){
             this.getCampaigns();
+        },
+        updated(){
+            $('.special.cards .image').dimmer({
+                on: 'hover'
+            });
         }
     }
 </script>

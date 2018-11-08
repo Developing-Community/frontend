@@ -22,6 +22,7 @@ Vue.use(VueRouter);
 
 export const store = new Vuex.Store({
   state: {
+    navStartPosition: 0,
     hostUrl: host_url,
     jwt: localStorage.getItem('t'),
     endpoints: {
@@ -41,6 +42,9 @@ export const store = new Vuex.Store({
   mutations: {
     setAuthentication (state, n) {
         state.isAuthenticated = n
+    },
+    setNavStartPosition (state, n) {
+        state.navStartPosition = n
     },
     updateToken(state, newToken) {
       localStorage.setItem('t', newToken);

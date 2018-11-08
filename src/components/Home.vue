@@ -1,6 +1,6 @@
 <template>
 <div id="home">
-    <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui inverted vertical masthead center aligned segment" id="header">
         <div class="ui text container">
             <h1 class="ui inverted header">
               جایی برای یادگیری

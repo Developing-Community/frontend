@@ -2,7 +2,7 @@
 
 
 
-<div id="container" class="ui container" style="text-align: center; margin-bottom: 20px;">
+<div id="container" class="ui container segment" style="text-align: center; margin-bottom: 20px;">
             <transition name="slide">
                 <router-view></router-view>
             </transition>

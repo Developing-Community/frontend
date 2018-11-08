@@ -48,8 +48,8 @@
                 contentUrl = this.$store.state.hostUrl + '/api/campaigns/' + this.$route.params.campaign_id;
                 if(this.$route.name == 'study-questions'){
                     contentUrl += '/questions/'
-                } else if (this.$route.name == 'study-plans'){
-                    contentUrl += '/plans/'
+                } else if (this.$route.name == 'study-partitions'){
+                    contentUrl += '/partitions/'
                 }
                 axios.get(contentUrl).then(response => {
                     console.log(response.data);

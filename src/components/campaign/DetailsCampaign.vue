@@ -1,87 +1,105 @@
 <template>
-<div class="ui container" style="text-align: center; margin-bottom: 20px;">
-    <div class="top_container ">
-        <div class="col-sm-10" style="display:block; margin: auto;">
-                    
-            <div  v-if="loading" style="width: 100%; text-align: center;">
-                <img style="margin: auto;" src="/static/loading.gif" />
-            </div>
-            <div v-else>
-                <button v-if="campaign.accessable" class="btn btn-primary" @click="edit = !edit">ویرایش</button>
-                <div v-if="edit">
-                    <div class="form-group">
-                        <label>نام</label>
-                        <input class="form-control" type="text" v-model="campaign.title">
-                    </div>
-                    <div class="form-group">
-                        <label>توضیحات</label>
-                        <textarea
-                            rows="5"
-                            class="form-control"
-                            v-model="campaign.description"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>شروع</label>
-                        <input class="form-control" type="text" v-model="campaign.start_time">
-                        <p style="text-align: center;">YYYY-MM-DD</p>
-                    </div>
-                    <div class="form-group">
-                        <label>پایان</label>
-                        <input class="form-control" type="text" v-model="campaign.end_time">
-                        <p style="text-align: center;">YYYY-MM-DD</p>
-                    </div>
-                    <button class="btn btn-primary" @click="submit">ثبت تغییرات</button>
+<div>
+
+    <div class="ui inverted vertical masthead center aligned segment" id="header">
+        <div class="ui text container">
+            <h1 class="ui inverted header">
+              جایی برای یادگیری
+                </h1>
+            <h2>متناسب با نیازهای جامعه امروزی</h2>
+            <div  class="ui huge primary button" style="margin-top:10px;" v-scroll-to="'#start'"><i class="down arrow icon"></i>اطلاعات بیشتر</div>
+        </div>
+    </div>
+
+    <div class="ui container center aligned" style="margin-bottom: 20px;">
+        <div class="top_container ">
+            <div class="col-sm-10" style="display:block; margin: auto;">
+                        
+                <div  v-if="loading" class="ui center aligned" style="width: 100%;">
+                    <img style="margin: auto;" src="/static/loading.gif" />
                 </div>
+                <div v-else>
+                    <!-- <button v-if="campaign.accessable" class="btn btn-primary" @click="edit = !edit">ویرایش</button> -->
+                    <div v-if="edit">
+                        <div class="form-group">
+                            <label>نام</label>
+                            <input class="form-control" type="text" v-model="campaign.title">
+                        </div>
+                        <div class="form-group">
+                            <label>توضیحات</label>
+                            <textarea
+                                rows="5"
+                                class="form-control"
+                                v-model="campaign.description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>شروع</label>
+                            <input class="form-control" type="text" v-model="campaign.start_time">
+                            <p style="text-align: center;">YYYY-MM-DD</p>
+                        </div>
+                        <div class="form-group">
+                            <label>پایان</label>
+                            <input class="form-control" type="text" v-model="campaign.end_time">
+                            <p style="text-align: center;">YYYY-MM-DD</p>
+                        </div>
+                        <button class="btn btn-primary" @click="submit">ثبت تغییرات</button>
+                    </div>
 
 
-                <div  class="" v-else>
+                    <div  class="" v-else>
 
 
-                    <div class="ui stackable two column grid segment">  
+                        <div class="ui middle aligned stackable two column grid">  
+                            <div class="row centered">
+                                <div class="two wide column ui"> 
+                                </div>
 
-                        <div class="eight wide column ui segment">    
-                           <div class="" style="text-align:center;width:80em;">
-                                <img class="ui medium rounded image segment" :src="campaign.image" >
+                                <div class="three wide column ui center aligned">    
+                                    <img class="ui medium image" :src="campaign.image" >
+                                </div>
+
+
+                                <div class="nine wide column center aligned" style="text-align:center;">
+
+                                    <h1>{{ campaign.title }} </h1>
+                                    <p>{{ campaign.description }}</p>
+
+                                    <div v-if="isAuthenticated && !campaign.accessable && !campaign.enrolled">
+                                        <button class="ui small primary button" v-if="campaign.requested" @click="cancelEnrollmentRequest">
+                                            لغو درخواست عضویت
+                                        </button>
+                                        <button class="ui inverted secondary button" v-else @click="requestEnrollment">
+                                            درخواست عضویت
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <div class="two wide column">
+
+                                </div>
                             </div>
                         </div>
 
-
-                        <div class="six wide column" style="text-align:center;">
-
-                            <h1>{{ campaign.title }} </h1>
-                            <p>{{ campaign.description }}</p>
-                            <p>شروع: {{ campaign.start_time }}</p>
-                            <p>پایان: {{ campaign.end_time }}</p>
-
-                            <div v-if="isAuthenticated && !campaign.accessable">
-                                <button v-if="campaign.enrolled" @click="()=>{}">
-                                    لغو درخواست عضویت
-                                </button>
-                                <button v-else @click="requestEnrollment">
-                                    درخواست عضویت
-                                </button>
-                            </div>
+                        <div class="ui top attached tabular menu" dir="rtl">
+                            <router-link :to="{name: 'study-partitions'}" class="item" active-class="active" exact>بودجه بندی</router-link>
+                            <router-link :to="{name: 'study-questions'}" class="item" active-class="active" exact>پرسش و پاسخ</router-link>
+                            <!-- <a class="item active" data-tab="first">پیام ها</a>
+                            <a class="item" data-tab="second">پرسش و پاسخ</a>
+                            <a class="item" data-tab="third">وظایف</a> -->
 
                         </div>
-                    
-                    </div>
 
-                    <div class="ui top attached tabular menu" dir="rtl">
-                        <router-link :to="{name: 'study-questions'}" class="item" active-class="active">پیام ها</router-link>
-                        <a class="item active" data-tab="first">پیام ها</a>
-                        <a class="item" data-tab="second">پرسش و پاسخ</a>
-                        <a class="item" data-tab="third">وظایف</a>
-
-                    </div>
-
-                    <div class="ui bottom attached tab segment active ">
-                        <router-view></router-view>
+                        <div class="ui bottom attached tab segment active ">
+                            <router-view></router-view>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+
 </template>
 
 <script>
@@ -176,7 +194,8 @@
             requestEnrollment() {
                 this.loading = true;
                 var vinst = this;
-                axios.post(this.$store.state.hostUrl + '/api/campaigns/' + this.campaign.id  +'/enroll/', 
+                axios.post(this.$store.state.hostUrl + '/api/campaigns/' + this.campaign.id  +'/request-enrollment/', 
+                {},
                 { headers: {
                 'Content-type': 'application/json',
                 'Authorization' : 'JWT ' + localStorage.getItem('t')
@@ -185,8 +204,29 @@
                     console.log("good");
                     console.log(response.data);
                     if(response.status == 201){
-                        this.campaign.enrolled = true;
+                        vinst.campaign.requested = true;
                     }
+                    vinst.loading = false;
+                })
+                .catch(err => {
+                    console.log("bad");
+                    console.log(err.response);
+                    vinst.loading = false;
+                });
+            },
+            cancelEnrollmentRequest() {
+                this.loading = true;
+                var vinst = this;
+                axios.post(this.$store.state.hostUrl + '/api/campaigns/' + this.campaign.id  +'/cancel-request/', 
+                {},
+                { headers: {
+                'Content-type': 'application/json',
+                'Authorization' : 'JWT ' + localStorage.getItem('t')
+                }
+                }).then(response => {
+                    console.log("good");
+                    console.log(response.data);
+                    vinst.campaign.requested = false;
                     vinst.loading = false;
                 })
                 .catch(err => {
@@ -214,4 +254,119 @@ h1, h4, label, button{
     font-size: 16px;
     color: #6e6e6e;
 }
+
+/* copy from home */
+
+
+h5 {
+  text-align: center;
+  color: #2900a8;
+  padding-top: 10px;
+}
+.column p {
+  margin-top: 30px;
+  line-height:35px;
+}
+.hidden.menu {
+  display: none;
+}
+.masthead.segment{
+  background: url('/static/banner.png');
+}
+.masthead.segment {
+  min-height: 760px;
+
+  background-size: cover;
+  padding: 1em 0em;
+}
+
+#header {
+    min-height: 100px;
+}
+
+.masthead .logo.item img {
+  margin-right: 1em;
+}
+.masthead .ui.menu .ui.button {
+  margin-left: 0.5em;
+}
+.masthead h1.ui.header {
+  margin-top: 3em;
+  margin-bottom: 0em;
+  font-size: 4em;
+  font-family: IRANSans;
+  font-weight: normal;
+}
+.masthead h2 {
+  font-size: 1.7em;
+  font-weight: normal;
+}
+
+.ui.vertical.stripe {
+  padding: 8em 0em;
+}
+.ui.vertical.stripe h3 {
+  font-size: 2em;
+}
+.ui.vertical.stripe .button + h3,
+.ui.vertical.stripe p + h3 {
+  margin-top: 3em;
+}
+.ui.vertical.stripe .floated.image {
+  clear: both;
+}
+.ui.vertical.stripe p {
+  font-size: 1.33em;
+}
+.ui.vertical.stripe .horizontal.divider {
+  margin: 3em 0em;
+}
+
+.quote.stripe.segment {
+  padding: 0em;
+}
+.quote.stripe.segment .grid .column {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.footer.segment {
+  padding: 5em 0em;
+}
+
+.secondary.pointing.menu .toc.item {
+  display: none;
+}
+
+.masthead h1.ui.header {
+  margin-top: 250px;
+}
+
+.masthead .button {
+  font-family: IRANSans-light;
+}
+
+@media only screen and (max-width: 700px) {
+  .ui.fixed.menu {
+    display: none !important;
+  }
+  .secondary.pointing.menu .item,
+  .secondary.pointing.menu .menu {
+    display: none;
+  }
+  .secondary.pointing.menu .toc.item {
+    display: block;
+  }
+  .masthead h1.ui.header {
+    margin-top: 200px;
+    font-size: 3em;
+  }
+  .masthead h2 {
+    font-size: 1.5em;
+  }
+}
+.menu {
+  padding: 30px;
+}
+
 </style>

@@ -1,7 +1,7 @@
 <template>
         <div class="content">
         <div v-if="isAuthenticated">
-        <p>باتشکر از عضویت شما</p>
+        <h3>باتشکر از عضویت شما</h3>
         <a href="https://t.me/joinchat/BzST0lBdHY9og6kPus_InQ"><h3>لینک گروه برنامه نویسی</h3></a>
             <a href="https://t.me/joinchat/BzST0kYP9WIgkR4gz5GJdg"><h3>لینک گروه طراحی و گرافیک</h3></a>
             <a href="https://t.me/joinchat/BzST0lBqx8zMoRygUZyxvg"><h3>لینک گروه هنر</h3></a>
