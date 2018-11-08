@@ -9,14 +9,12 @@
         <div class="" v-else>
             <div class="field" >
                 <div class="">
-                    <label>نام کاربری</label>
-                    <input class="form-control" type="text" v-model="user.username">
+                    <input class="form-control" type="text" v-model="user.username" placeholder="نام کاربری">
                     </div>
             </div>
             <div class="field">
                 <div class="">
-                    <label>کلمه عبور</label>
-                    <input class="form-control" @keyup.enter="submit" type="password" v-model="user.password">
+                    <input class="form-control" @keyup.enter="submit" type="password" v-model="user.password" placeholder="کلمه عبور">
                 </div>
             </div>
 
