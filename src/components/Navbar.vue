@@ -157,6 +157,63 @@
             window.requestAnimationFrame(updateGradient);
         }
     }
+
+    function refreshNavbar(){
+        $(document).ready(function() {
+            if ($(window).scrollTop() <= (document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight - 80, 0) : 0)) {
+                $("#topsearchbar").animate({marginTop: "9px", height: "40px"}, "fast");
+                animationEnabled = false;
+                if ((document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight - 80, 0) : 0) > 0) {
+                    $("#toplogo").css("opacity", "0");
+                    $(".menu.secondary")
+                    .animate({ paddingTop: "10px", paddingBottom: "10px" , opacity: "1" }, "fast")
+                    .css("border-bottom", "0px")
+                    .css("background", "none");
+                } else {
+                    $("#toplogo").animate({opacity: 0}, 150);    
+                    $(".menu.secondary").animate({ paddingTop: "10px", paddingBottom: "10px" }, "fast");
+                    animationEnabled = true;
+                    if (animationFinished) {
+                        // reset steps count
+                        steps_count = 0;
+                        // set new indexs
+                        currentIndex = set_next(currentIndex);
+                        nextIndex = set_next(nextIndex);
+                        // calc steps
+                        calc_steps();
+                    }
+                    // go go go!
+                    window.requestAnimationFrame(updateGradient);
+                }
+                x = 1;
+            }
+            else {
+                $("#topsearchbar").animate({marginTop: "12px", height: "35px"}, "fast");
+                $("#toplogo").animate({opacity: 0.65});
+                if ((document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight - 80, 0) : 0) > 0) {
+                    $(".menu.secondary")
+                    .css("opacity", "0")
+                    .animate({ padding: "0px", opacity: "1" }, "fast")
+                    .css("border-bottom", "1px solid gray");
+                } else {
+                    $(".menu.secondary").animate({ paddingTop: "0px", paddingBottom: "0px" }, "fast");
+                }
+                animationEnabled = true;
+                if (animationFinished) {
+                    // reset steps count
+                    steps_count = 0;
+                    // set new indexs
+                    currentIndex = set_next(currentIndex);
+                    nextIndex = set_next(nextIndex);
+                    // calc steps
+                    calc_steps();
+                }
+                // go go go!
+                window.requestAnimationFrame(updateGradient);
+                x = 0;
+            }
+        });
+    };
     export default {
         data() {
             return {
@@ -165,7 +222,7 @@
         },
         watch:{
             $route (to, from){
-                this.refreshNavbar();
+                refreshNavbar();
             },
         },
         computed:{
@@ -173,71 +230,12 @@
                 return this.$store.getters.isAuthenticated;
             }
         },
-        methods:{
-            refreshNavbar(){
-                var vinst = this;
-                $(document).ready(function() {
-                    if ($(window).scrollTop() <= (document.getElementById("header") ? document.getElementById("header").offsetHeight : 0)) {
-                        $("#topsearchbar").animate({marginTop: "9px", height: "40px"}, "fast");
-                        animationEnabled = false;
-                        if ((document.getElementById("header") ? document.getElementById("header").offsetHeight : 0) > 0) {
-                            $("#toplogo").css("opacity", "0");
-                            $(".menu.secondary")
-                            .animate({ paddingTop: "10px", paddingBottom: "10px" , opacity: "1" }, "fast")
-                            .css("border-bottom", "0px")
-                            .css("background", "none");
-                        } else {
-                            $("#toplogo").animate({opacity: 0}, 150);    
-                            $(".menu.secondary").animate({ paddingTop: "10px", paddingBottom: "10px" }, "fast");
-                            animationEnabled = true;
-                            if (animationFinished) {
-                                // reset steps count
-                                steps_count = 0;
-                                // set new indexs
-                                currentIndex = set_next(currentIndex);
-                                nextIndex = set_next(nextIndex);
-                                // calc steps
-                                calc_steps();
-                            }
-                            // go go go!
-                            window.requestAnimationFrame(updateGradient);
-                        }
-                        x = 1;
-                    }
-                    else {
-                        $("#topsearchbar").animate({marginTop: "12px", height: "35px"}, "fast");
-                        $("#toplogo").animate({opacity: 0.65});
-                        if ((document.getElementById("header") ? document.getElementById("header").offsetHeight : 0) > 0) {
-                            $(".menu.secondary")
-                            .css("opacity", "0")
-                            .animate({ padding: "0px", opacity: "1" }, "fast")
-                            .css("border-bottom", "1px solid gray");
-                        } else {
-                            $(".menu.secondary").animate({ paddingTop: "0px", paddingBottom: "0px" }, "fast");
-                        }
-                        animationEnabled = true;
-                        if (animationFinished) {
-                            // reset steps count
-                            steps_count = 0;
-                            // set new indexs
-                            currentIndex = set_next(currentIndex);
-                            nextIndex = set_next(nextIndex);
-                            // calc steps
-                            calc_steps();
-                        }
-                        // go go go!
-                        window.requestAnimationFrame(updateGradient);
-                        x = 0;
-                    }
-                });
-            }
-        },
         created() {
-            window.onresize = this.refreshNavbar();
             var vinst = this;
             $(document).ready(function() {
+                window.onresize = refreshNavbar();
                 $(".dropdown").dropdown();
-                if ((document.getElementById("header") ? document.getElementById("header").offsetHeight : 0) == 0) {
+                if ((document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight - 80, 0) : 0) == 0) {
                         $(".menu.secondary")
                         .css("border-bottom", "1px solid gray");
                     animationEnabled = true;
@@ -291,11 +289,11 @@
                 // });
 
                 $(window).scroll(function () {
-                    if ($(window).scrollTop() <= (document.getElementById("header") ? document.getElementById("header").offsetHeight : 0)) {
+                    if ($(window).scrollTop() <= (document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight - 80, 0) : 0)) {
                         if(x == 0){
                             $("#topsearchbar").animate({marginTop: "9px", height: "40px"}, "fast");
                             animationEnabled = false;
-                            if ((document.getElementById("header") ? document.getElementById("header").offsetHeight : 0) > 0) {
+                            if ((document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight - 80, 0) : 0) > 0) {
                                 $("#toplogo").css("opacity", "0");
                                 $(".menu.secondary")
                                 .animate({ paddingTop: "10px", paddingBottom: "10px" , opacity: "1" }, "fast")
@@ -311,7 +309,7 @@
                     else if (x == 1) {
                         $("#topsearchbar").animate({marginTop: "12px", height: "35px"}, "fast");
                         $("#toplogo").animate({opacity: 0.65});
-                        if ((document.getElementById("header") ? document.getElementById("header").offsetHeight : 0) > 0) {
+                        if ((document.getElementById("header") ? Math.max(document.getElementById("header").offsetHeight - 80, 0) : 0) > 0) {
                             $(".menu.secondary")
                             .css("opacity", "0")
                             .animate({ paddingTop: "0px", paddingBottom: "0px", opacity: "1" }, "fast")

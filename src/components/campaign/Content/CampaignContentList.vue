@@ -6,17 +6,14 @@
             <div v-else>
                 <div class="ui list">
                     <div class="item" v-for="content in contents">
-                        
+                            <template v-if="content.content">
                             <div class="header">{{ content.title }}</div>
-                            
-                                <!-- <router-link
-                                    tag="h2"
-                                    :to="{name: 'detailstudy', params: { id: campaign.id }}"
-                                    style="cursor: pointer"> -->
-                                    
                                     {{ content.content }}
-                                    <!-- </router-link> -->
+                            </template>
 
+                            <div v-else class = "ui secondary segment right aligned">
+                                    {{ content.title }}
+                            </div>
                                 
 
                         </div>
@@ -39,6 +36,11 @@
                 ],
                 loading: false
             };
+        },
+        watch:{
+            $route (to, from){
+                this.getContents();
+            },
         },
         methods: {
             getContents(){

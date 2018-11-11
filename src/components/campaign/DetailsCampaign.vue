@@ -2,16 +2,10 @@
 <div>
 
     <div class="ui inverted vertical masthead center aligned segment" id="header">
-        <div class="ui text container">
-            <h1 class="ui inverted header">
-              جایی برای یادگیری
-                </h1>
-            <h2>متناسب با نیازهای جامعه امروزی</h2>
-            <div  class="ui huge primary button" style="margin-top:10px;" v-scroll-to="'#start'"><i class="down arrow icon"></i>اطلاعات بیشتر</div>
-        </div>
+        
     </div>
 
-    <div class="ui container center aligned" style="margin-bottom: 20px;">
+    <div id="container" class="ui container segment" style="text-align: center; margin-bottom: 20px; margin-top: 70px;">
         <div class="top_container ">
             <div class="col-sm-10" style="display:block; margin: auto;">
                         
@@ -48,37 +42,23 @@
 
                     <div  class="" v-else>
 
-
-                        <div class="ui middle aligned stackable two column grid">  
-                            <div class="row centered">
-                                <div class="two wide column ui"> 
-                                </div>
-
-                                <div class="three wide column ui center aligned">    
-                                    <img class="ui medium image" :src="campaign.image" >
-                                </div>
-
-
-                                <div class="nine wide column center aligned" style="text-align:center;">
+                                <div class="ui center aligned" style="text-align:center;">
 
                                     <h1>{{ campaign.title }} </h1>
-                                    <p>{{ campaign.description }}</p>
+                                    <p style="font-size:120%; margin-top:20px">{{ campaign.creator }}</p>
+                                    <p style="font-size:120%">{{ campaign.description }}</p>
+
 
                                     <div v-if="isAuthenticated && !campaign.accessable && !campaign.enrolled">
-                                        <button class="ui small primary button" v-if="campaign.requested" @click="cancelEnrollmentRequest">
+                                        <button class="ui small inverted primary button" v-if="campaign.requested" @click="cancelEnrollmentRequest">
                                             لغو درخواست عضویت
                                         </button>
-                                        <button class="ui inverted secondary button" v-else @click="requestEnrollment">
+                                        <button class="ui small primary button" v-else @click="requestEnrollment">
                                             درخواست عضویت
                                         </button>
                                     </div>
 
                                 </div>
-                                <div class="two wide column">
-
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="ui top attached tabular menu" dir="rtl">
                             <router-link :to="{name: 'study-partitions'}" class="item" active-class="active" exact>بودجه بندی</router-link>
@@ -274,15 +254,12 @@ h5 {
   background: url('/static/banner.png');
 }
 .masthead.segment {
-  min-height: 760px;
+  height: 400px;
 
   background-size: cover;
   padding: 1em 0em;
 }
 
-#header {
-    min-height: 100px;
-}
 
 .masthead .logo.item img {
   margin-right: 1em;
@@ -364,9 +341,6 @@ h5 {
   .masthead h2 {
     font-size: 1.5em;
   }
-}
-.menu {
-  padding: 30px;
 }
 
 </style>
