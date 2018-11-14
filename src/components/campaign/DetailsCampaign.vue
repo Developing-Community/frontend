@@ -13,7 +13,7 @@
                     <img style="margin: auto;" src="/static/loading.gif" />
                 </div>
                 <div v-else>
-                    <!-- <button v-if="campaign.accessable" class="btn btn-primary" @click="edit = !edit">ویرایش</button> -->
+                    <button v-if="campaign.accessable" class="btn btn-primary" @click="edit = !edit">ویرایش</button>
                     <div v-if="edit">
                         <div class="form-group">
                             <label>نام</label>
@@ -63,6 +63,7 @@
                         <div class="ui top attached tabular menu" dir="rtl">
                             <router-link :to="{name: 'study-partitions'}" class="item" active-class="active" exact>بودجه بندی</router-link>
                             <router-link :to="{name: 'study-questions'}" class="item" active-class="active" exact>پرسش و پاسخ</router-link>
+                            <router-link :to="{name: 'study-articles'}" class="item" active-class="active" exact>محتوا</router-link>
                             <!-- <a class="item active" data-tab="first">پیام ها</a>
                             <a class="item" data-tab="second">پرسش و پاسخ</a>
                             <a class="item" data-tab="third">وظایف</a> -->

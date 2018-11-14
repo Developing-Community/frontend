@@ -13,6 +13,7 @@ import ListCampaign from './components/campaign/ListCampaign.vue';
 import DetailsCampaign from './components/campaign/DetailsCampaign.vue';
 import CreateCampaign from './components/campaign/CreateCampaign.vue';
 import CampaignContentList from './components/campaign/Content/CampaignContentList.vue';
+import CampaignRequests from './components/campaign/CampaignRequests.vue'
 export const routes = [
     {
         path: '/',
@@ -91,6 +92,16 @@ export const routes = [
                 path: 'questions',
                 component: CampaignContentList,
                 name: 'study-questions',
+            },
+            {
+                path: 'articles',
+                component: CampaignContentList,
+                name: 'study-articles',
+            },
+            {
+                path: 'requests',
+                component: CampaignRequests,
+                name: 'study-requests',
             },
         ]
     },
