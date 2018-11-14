@@ -9,8 +9,7 @@
                 <template v-if="$route.query.token">
                   <div class="field ">
                       <div class="">
-                          <label>کلمه عبور جدید</label>
-                          <input class="form-control" @keyup.enter="submitConfirm" type="password" v-model="rpdata.password">
+                          <input class="form-control" @keyup.enter="submitConfirm" type="password" v-model="rpdata.password" placeholder="کلمه عبور جدید">
                       </div>
                   </div>
                   <button class="ui inverted primary button" @click="submitConfirm">تایید</button>
@@ -18,8 +17,7 @@
                 <template v-else>
                   <div class="field ">
                       <div class="">
-                          <label>ایمیل</label>
-                          <input class="form-control" @keyup.enter="submitRequest" type="text" v-model="user.email">
+                          <input class="form-control" @keyup.enter="submitRequest" type="text" v-model="user.email" placeholder="ایمیل">
                       </div>
                   </div>
                   <button class="ui inverted primary button" @click="submitRequest">تایید</button>

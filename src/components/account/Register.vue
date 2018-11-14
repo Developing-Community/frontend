@@ -8,29 +8,24 @@
             <div v-else>
                 <div class="field">
                     <div class="">
-                        <label>نام کاربری</label>
-                        <input class="form-control" type="text" v-model="user.username">
+                        <input class="form-control" type="text" v-model="user.username" placeholder="نام کاربری">
                     </div>
                 </div>  
                 <div class="field ">
                     <div class="">
-                        <label>ایمیل</label>
-                        <input class="form-control" type="text" v-model="user.email">
+                        <input class="form-control" type="text" v-model="user.email" placeholder="ایمیل">
                     </div>
                 </div>
                 <div class="field ">
                     <div class="">
-                        <label>کلمه عبور</label>
-                        <input class="form-control" @keyup.enter="submit" type="password" v-model="user.password">
+                        <input class="form-control" @keyup.enter="submit" type="password" v-model="user.password" placeholder="کلمه عبور">
                     </div>
                 </div>
                 <!-- <div class="form-group">
-                    <label>نام</label>
-                    <input class="form-control" type="text" v-model="user.first_name">
+                    <input class="form-control" type="text" v-model="user.first_name" placeholder="نام">
                 </div>
                 <div class="form-group">
-                    <label>نام خانوادگی</label>
-                    <input class="form-control" @keyup.enter="submit" type="text" v-model="user.last_name">
+                    <input class="form-control" @keyup.enter="submit" type="text" v-model="user.last_name" placeholder="نام خانوادگی">
                 </div> -->
                 <button class="ui inverted primary button" @click="submit">ثبت نام</button>
             </div>
