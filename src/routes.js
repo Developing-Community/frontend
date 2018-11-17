@@ -13,7 +13,9 @@ import ListCampaign from './components/campaign/ListCampaign.vue';
 import DetailsCampaign from './components/campaign/DetailsCampaign.vue';
 import CreateCampaign from './components/campaign/CreateCampaign.vue';
 import CampaignContentList from './components/campaign/Content/CampaignContentList.vue';
-import CampaignRequests from './components/campaign/CampaignRequests.vue'
+import CampaignRequests from './components/campaign/CampaignRequests.vue';
+
+import Question from './components/content/Question.vue';
 export const routes = [
     {
         path: '/',
@@ -77,6 +79,11 @@ export const routes = [
                 component: TelegramVerification,
                 name: 'verify-token'
             },
+            {
+                path: '/question/:q_slug',
+                component: Question,
+                name: 'question'
+            },
         ]
     },
     {
@@ -102,6 +109,32 @@ export const routes = [
                 path: 'requests',
                 component: CampaignRequests,
                 name: 'study-requests',
+            },
+        ]
+    },
+    {
+        path: '/mentoring/:campaign_id',
+        component: DetailsCampaign,
+        children: [
+            {
+                path: '',
+                component: CampaignContentList,
+                name: 'mentoring-partitions',
+            },
+            {
+                path: 'questions',
+                component: CampaignContentList,
+                name: 'mentoring-questions',
+            },
+            {
+                path: 'articles',
+                component: CampaignContentList,
+                name: 'mentoring-articles',
+            },
+            {
+                path: 'requests',
+                component: CampaignRequests,
+                name: 'mentoring-requests',
             },
         ]
     },
