@@ -1,6 +1,7 @@
 <template>
     <div>
-            <h1 style="margin:30px; text-align: center;">دوره های مطالعاتی</h1>
+            <h1 v-if="$route.name == 'list-study'" style="margin:30px; text-align: center;">دوره های مطالعاتی</h1>
+            <h1 v-else-if="$route.name == 'list-mentoring'" style="margin:30px; text-align: center;">دوره های آموزشی</h1>
 
             <div  v-if="loading" style="width: 100%; text-align: center;">
                 <img style="margin: auto;" src="/static/loading.gif" />
@@ -16,7 +17,7 @@
                             </div>
                             </div>
                         </div>
-                        <img :src="campaign.image">
+                        <img :src="campaign.thumbnail">
                         </div>
                         <div class="content">
                         <a class="header">{{ campaign.title }}</a>
@@ -59,7 +60,13 @@
             getCampaigns(){
                 this.loading = true;
                 var vinst = this;
-                axios.get(this.$store.state.hostUrl + '/api/campaigns/study/').then(response => {
+                var campaign_url = this.$store.state.hostUrl + '/api/campaigns/';
+                if(this.$route.name == 'list-study'){
+                    campaign_url += 'study/';
+                } else if (this.$route.name == 'list-mentoring'){
+                    campaign_url += 'mentoring/'
+                }
+                axios.get(campaign_url).then(response => {
                     console.log(response.data);
                     vinst.campaigns = response.data.results;
 

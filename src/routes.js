@@ -60,6 +60,11 @@ export const routes = [
                 name: 'list-study'
             },
             {
+                path: '/mentoring',
+                component: ListCampaign,
+                name: 'list-mentoring'
+            },
+            {
                 path: '/study/create',
                 component: CreateCampaign,
                 name: 'create-study'

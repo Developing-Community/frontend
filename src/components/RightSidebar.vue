@@ -43,7 +43,7 @@
         },
         created(){
             $(document).ready(function() {
-                $("a.item").click(function(){
+                $("#right-menu a.item").click(function(){
                     $("#right-menu")
                         .first()
                         .sidebar("hide", { transition: "push" });
