@@ -7,7 +7,7 @@
         <div class="ui container contentnav">
             <div class="ui icon input desk-only" id="topsearchbar" :class="{faded: fadedSearch, notfaded: !fadedSearch}">
                 <i class="search icon"></i>
-                <input type="text" placeholder="Search..."  @focus="fadedSearch = false" @blur="fadedSearch = true">
+                <input id="searchInput" type="text" placeholder="جستجو..."  @focus="fadedSearch = false" @blur="fadedSearch = true">
             </div>
             <div class="right item" dir="rtl">
                 <a class="item mobile-button mob-only"> <i class="content icon"></i> </a>
@@ -350,6 +350,13 @@
   [class*="desk-only"]{
     display: none !important;
   }
+}
+
+i.search.icon {left: 0}
+#searchInput {
+    direction: rtl;
+    text-align: right;
+    padding-right: 1em !important;
 }
 
 #toplogo {
